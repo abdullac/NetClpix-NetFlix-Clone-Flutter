@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/icons.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
@@ -10,6 +11,7 @@ import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.d
 class ScrnMainPage extends StatelessWidget {
   ScrnMainPage({super.key});
 
+  // list of screens
   ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
   List<Widget> screensList = const <Widget>[
     ScrnHome(),
@@ -24,31 +26,36 @@ class ScrnMainPage extends StatelessWidget {
     return ValueListenableBuilder(
         valueListenable: selectedIntexNotifier,
         builder: (BuildContext context, updatedIndex, Widget? child) {
-          double height = (MediaQuery.sizeOf(context).height);
           return Stack(
             children: [
               screensList[updatedIndex],
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: BottomNavigationBar(
-                  items: bottomNavigationBarItems(updatedIndex),
-                  onTap: (selectedIndex) {
-                    selectedIntexNotifier.value = selectedIndex;
-                  },
-                  currentIndex: selectedIntexNotifier.value,
-                  iconSize: 25,
-                  selectedItemColor: clrRed,
-                  unselectedItemColor: clrWhite30,
-                  showUnselectedLabels: true,
-                  elevation: 5,
-                  type: BottomNavigationBarType.fixed,
-                ),
-              ),
+              bottomNavigatinBar(updatedIndex),
             ],
           );
         });
   }
 
+  // Bottom navigation bar widget
+  Widget bottomNavigatinBar(int updatedIndex) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: BottomNavigationBar(
+        items: bottomNavigationBarItems(updatedIndex),
+        onTap: (selectedIndex) {
+          selectedIntexNotifier.value = selectedIndex;
+        },
+        currentIndex: selectedIntexNotifier.value,
+        iconSize: 25,
+        selectedItemColor: clrRed,
+        unselectedItemColor: clrWhite30,
+        showUnselectedLabels: true,
+        elevation: 5,
+        type: BottomNavigationBarType.fixed,
+      ),
+    );
+  }
+
+  // Bottom navigation bar items list
   List<BottomNavigationBarItem> bottomNavigationBarItems(int notifierValue) {
     return <BottomNavigationBarItem>[
       BottomNavigationBarItem(
