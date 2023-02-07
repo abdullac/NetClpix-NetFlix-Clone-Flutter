@@ -11,6 +11,13 @@ class ScrnMainPage extends StatelessWidget {
   ScrnMainPage({super.key});
 
   ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
+  List<Widget> screensList = const <Widget>[
+    ScrnHome(),
+    ScrnNewAndHot(),
+    ScrnFastLaughs(),
+    ScrnSearch(),
+    ScrnDownloads(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +27,7 @@ class ScrnMainPage extends StatelessWidget {
           double height = (MediaQuery.sizeOf(context).height);
           return Stack(
             children: [
+              screensList[updatedIndex],
               Align(
                 alignment: Alignment.bottomCenter,
                 child: BottomNavigationBar(
