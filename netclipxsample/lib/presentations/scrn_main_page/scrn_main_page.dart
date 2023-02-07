@@ -12,7 +12,7 @@ class ScrnMainPage extends StatelessWidget {
   ScrnMainPage({super.key});
 
   // list of screens
-  ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
+  ValueNotifier<int> selectedIntexNotifier = ValueNotifier(4);
   List<Widget> screensList = const <Widget>[
     ScrnHome(),
     ScrnNewAndHot(),
@@ -21,6 +21,7 @@ class ScrnMainPage extends StatelessWidget {
     ScrnDownloads(),
   ];
 
+  // Build function
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
