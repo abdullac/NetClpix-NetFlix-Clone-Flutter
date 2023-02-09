@@ -1,45 +1,42 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class SearchFieldWidgetArea extends StatelessWidget {
-    SearchFieldWidgetArea({super.key});
+  SearchFieldWidgetArea({super.key});
 
-
-  static final TextEditingController searchFieldController = TextEditingController();
+  static final TextEditingController searchFieldController =
+      TextEditingController();
   final ValueNotifier<bool> searchFieldClickNotifier = ValueNotifier(false);
-
 
   @override
   Widget build(BuildContext context) {
-    return  ValueListenableBuilder(
-            valueListenable: searchFieldClickNotifier,
-            builder: (BuildContext context, newValue, Widget? _) {
-              return Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.grey[800],
-                  borderRadius: const BorderRadius.all(Radius.circular(5)),
-                ),
-                child: Stack(
-                  children: [
-                    SearchFieldAssistWidget(newValue: newValue),
-                    SearchFieldWidget(
-                      searchFieldController: searchFieldController,
-                      searchFieldClickNotifier: searchFieldClickNotifier,
-                      newValue: newValue,
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
+    return ValueListenableBuilder(
+      valueListenable: searchFieldClickNotifier,
+      builder: (BuildContext context, newValue, Widget? _) {
+        var boxDecoration = BoxDecoration(
+          color: Colors.grey[800],
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
+        );
+
+        ///search field area
+        return Container(
+          width: double.infinity,
+          decoration: boxDecoration,
+          child: Stack(
+            children: [
+              SearchFieldAssistWidget(newValue: newValue),
+              SearchFieldWidget(
+                searchFieldController: searchFieldController,
+                searchFieldClickNotifier: searchFieldClickNotifier,
+                newValue: newValue,
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
-
-
 
 class SearchFieldWidget extends StatelessWidget {
   final bool newValue;
@@ -55,42 +52,49 @@ class SearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const prefixIcon = Icon(
+      Icons.search,
+      color: Colors.grey,
+    );
+    var suffixIcon = IconButton(
+      onPressed: () {
+        // clear searchField onPressed
+        searchFieldController.clear();
+      },
+      icon: const Icon(Icons.close_rounded, color: Colors.grey),
+    );
+    var textFieldDecoration = BoxDecoration(
+        color: Colors.grey[800],
+        borderRadius: const BorderRadius.all(Radius.circular(5)));
     return Opacity(
       opacity: newValue == false ? 0.0 : 1.0,
+      /// text field area
       child: CupertinoTextField(
         controller: searchFieldController,
-        onTap: () {
-          // onTap
-          searchFieldClickNotifier.value = true;
-        },
-        onTapOutside: (event) {
-          //onTap outSide
-          searchFieldClickNotifier.value = false;
-        },
-        prefix: const Icon(
-          Icons.search,
-          color: Colors.grey,
-        ),
+        onTap: onTapField,
+        onTapOutside: onTapOutSideField,
+        prefix: prefixIcon,
         prefixMode: OverlayVisibilityMode.notEditing,
-        suffix: IconButton(
-            onPressed: () {
-              // clear searchField onPressed
-              searchFieldController.clear();
-            },
-            icon: const Icon(Icons.close_rounded, color: Colors.grey)),
+        suffix: suffixIcon,
         suffixMode: OverlayVisibilityMode.editing,
-        decoration: BoxDecoration(
-            color: Colors.grey[800],
-            borderRadius: const BorderRadius.all(Radius.circular(5))),
+        decoration: textFieldDecoration,
         placeholder: "Search",
         placeholderStyle: TextStyle(color: Colors.grey[400]),
         style: TextStyle(color: Colors.red[500]),
       ),
     );
   }
+
+  void onTapOutSideField(event) {
+    //onTap outSide
+    searchFieldClickNotifier.value = false;
+  }
+
+  void onTapField() {
+    // onTap
+    searchFieldClickNotifier.value = true;
+  }
 }
-
-
 
 class SearchFieldAssistWidget extends StatelessWidget {
   final bool newValue;
