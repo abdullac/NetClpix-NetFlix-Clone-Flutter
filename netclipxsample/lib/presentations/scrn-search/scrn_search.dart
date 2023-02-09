@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/widgets/title_area.dart';
 import 'package:netclipxsample/presentations/scrn-search/search_widgets/search_field_widget.dart';
 import 'search_widgets/search_results_widget.dart';
@@ -41,6 +42,7 @@ class ScrnSearch extends StatelessWidget {
   }
 }
 
+///  grid view
 class SearchesWidget extends StatelessWidget {
   final SearchView searchView;
   const SearchesWidget({
@@ -57,10 +59,10 @@ class SearchesWidget extends StatelessWidget {
     return Expanded(
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: ifSearchView(1, 3),
+          crossAxisCount: ifSearchView(screenDimonsion(1, 3, 2), screenDimonsion(3, 7, 4)),
           crossAxisSpacing: ifSearchView(7.0, 3.0),
           mainAxisSpacing: ifSearchView(5.0, 3.0),
-          childAspectRatio: ifSearchView(3.0, 0.6),
+          childAspectRatio: ifSearchView(5.0, 0.6),
         ),
         itemBuilder: (BuildContext context, int index) =>
             ifSearchView(const TopSearchesWidget(), const SearchResults()),

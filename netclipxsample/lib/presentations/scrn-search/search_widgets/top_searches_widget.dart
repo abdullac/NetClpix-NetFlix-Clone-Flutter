@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/variables/images.dart';
 
 class TopSearchesWidget extends StatelessWidget {
@@ -10,7 +12,8 @@ class TopSearchesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var searchedImageArea = Container(
-      width: 80,
+      width: screenDimonsion(screenWidth * 30 / 100, screenWidth * 7 / 100,
+          screenWidth * 12 / 100),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(5)),
         image: DecorationImage(
@@ -21,20 +24,24 @@ class TopSearchesWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Text(
         "Movie Title",
-        style: textMedium(),
+        style: textMedium()?.copyWith(
+            fontSize: screenDimonsion(screenWidth * 5 / 100,
+                screenWidth * 2 / 100, screenWidth * 3 / 100)),
       ),
     );
     var playIconArea = Stack(
       alignment: Alignment.center,
-      children: const [
+      children: [
         CircleAvatar(
           backgroundColor: Colors.white70,
-          radius: 22,
+          radius: screenDimonsion(screenWidth * 5.55 / 100,
+              screenHeight * 3.55 / 100, screenWidth * 3.55 / 100),
         ),
         Icon(
           Icons.play_circle_fill,
           color: Colors.black,
-          size: 51,
+          size: screenDimonsion(screenWidth * 12.5 / 100,
+              screenHeight * 8 / 100, screenWidth * 8 / 100),
         )
       ],
     );
