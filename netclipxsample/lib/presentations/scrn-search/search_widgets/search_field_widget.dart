@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 
 class SearchFieldWidgetArea extends StatelessWidget {
-   SearchFieldWidgetArea({super.key});
+    SearchFieldWidgetArea({super.key});
 
 
+  static final TextEditingController searchFieldController = TextEditingController();
   final ValueNotifier<bool> searchFieldClickNotifier = ValueNotifier(false);
-  final TextEditingController searchFieldController = TextEditingController();
 
 
   @override

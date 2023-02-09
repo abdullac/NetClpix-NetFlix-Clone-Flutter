@@ -39,7 +39,7 @@ TextStyle? textLarge(){
 
 TextStyle? textMedium(){
   double fontSize = screenDimonsion(screenWidth*4.5/100, screenHeight*4.5/100,screenWidth*2.5/100);
-  return TextStyle(color: Color.fromARGB(255, 231, 231, 231), fontSize: fontSize, fontWeight: FontWeight.w300);
+  return TextStyle(color: Color.fromARGB(255, 231, 231, 231), fontSize: fontSize, fontWeight: FontWeight.w400);
 }
 
 TextStyle? textSmall(){
