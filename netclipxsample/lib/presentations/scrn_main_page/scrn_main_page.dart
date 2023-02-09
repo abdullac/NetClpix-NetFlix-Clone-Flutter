@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
+import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/variables/icons.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/scrn_downloads.dart';
@@ -24,6 +25,9 @@ class ScrnMainPage extends StatelessWidget {
   // Build function
   @override
   Widget build(BuildContext context) {
+    screenSize = MediaQuery.of(context).size;
+    bigDimonsion = findDimonsion();
+    print("bigDimonsion$bigDimonsion");
     return ValueListenableBuilder(
         valueListenable: selectedIntexNotifier,
         builder: (BuildContext context, updatedIndex, Widget? child) {
