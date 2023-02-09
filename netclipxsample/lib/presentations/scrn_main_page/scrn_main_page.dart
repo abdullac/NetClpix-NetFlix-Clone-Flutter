@@ -13,13 +13,13 @@ class ScrnMainPage extends StatelessWidget {
   ScrnMainPage({super.key});
 
   // list of screens
-  ValueNotifier<int> selectedIntexNotifier = ValueNotifier(4);
-  List<Widget> screensList = const <Widget>[
-    ScrnHome(),
-    ScrnNewAndHot(),
-    ScrnFastLaughs(),
+  ValueNotifier<int> selectedIntexNotifier = ValueNotifier(3);
+  List<Widget> screensList = <Widget>[
+    const ScrnHome(),
+    const ScrnNewAndHot(),
+    const ScrnFastLaughs(),
     ScrnSearch(),
-    ScrnDownloads(),
+    const ScrnDownloads(),
   ];
 
   // Build function
