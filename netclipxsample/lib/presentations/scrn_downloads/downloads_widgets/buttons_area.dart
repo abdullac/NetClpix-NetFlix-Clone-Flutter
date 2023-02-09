@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/dimonsions.dart';
+import 'package:netclipxsample/core/widgets/button_widget.dart';
+import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 class ButtonsArea extends StatelessWidget {
   const ButtonsArea({
@@ -10,20 +12,24 @@ class ButtonsArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var buttonWidgets = [
+    var buttonWidgets = <Widget>[
       ButtonWidget(
         padding: 8,
         buttonColor: clrBlue ?? clrBlueN,
         buttonTextColor: clrWhite,
         buttonText: "Set Up",
+        buttonHeight: downloadsButtonHeight,
+        buttonWidth: downloadsButtonWidth,
       ),
       height0,
       width0,
-      const ButtonWidget(
+      ButtonWidget(
         padding: 12,
         buttonColor: clrWhite,
         buttonTextColor: clrBlack,
         buttonText: "See what you can download",
+        buttonHeight: downloadsButtonHeight,
+        buttonWidth: downloadsButtonWidth,
       ),
     ];
     return Positioned(
@@ -42,44 +48,6 @@ class ButtonsArea extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: buttonWidgets,
             ),
-    );
-  }
-}
-
-class ButtonWidget extends StatelessWidget {
-  final double padding;
-  final Color buttonColor;
-  final Color buttonTextColor;
-  final String buttonText;
-  const ButtonWidget({
-    super.key,
-    required this.padding,
-    required this.buttonColor,
-    required this.buttonTextColor,
-    required this.buttonText,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
-      child: SizedBox(
-        width: screenDimonsion(
-            screenWidth, screenWidth * 1 / 2, screenWidth * 4 / 10),
-        height: screenDimonsion(screenHeight*5.5/100, screenHeight*10/100, screenHeight*7/100),
-        child: ElevatedButton(
-          style: ButtonStyle(
-            padding: MaterialStateProperty.all(
-                const EdgeInsets.all(0)),
-            backgroundColor: MaterialStateProperty.all(buttonColor),
-            foregroundColor: MaterialStateProperty.all(buttonTextColor),
-          ),
-          onPressed: () {
-            //
-          },
-          child: Text(buttonText,textAlign: TextAlign.center,),
-        ),
-      ),
     );
   }
 }

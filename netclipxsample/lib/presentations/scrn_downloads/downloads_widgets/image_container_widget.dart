@@ -1,8 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 enum ImagePosition {
   left,
@@ -24,12 +22,8 @@ class ImageContainerWidget extends StatelessWidget {
     return Transform.rotate(
       angle: setToImage(imagePosition)["angle"],
       child: Container(
-        width: imagePosition == ImagePosition.center 
-          ? screenDimonsion(screenWidth*38/100, screenHeight*30/100, screenWidth*19/100)
-          : screenDimonsion(screenWidth*38/100, screenHeight*30/100, screenWidth*19/100),
-        height: imagePosition == ImagePosition.center
-         ? screenDimonsion(screenWidth*62/100, screenHeight*50/100, screenWidth*30/100)
-         : screenDimonsion(screenWidth*54/100, screenHeight*43/100, screenWidth*25/100),
+        width: imageContainerWidth(imagePosition),
+        height: imageContainerHeight(imagePosition),
         margin: setToImage(imagePosition)["margin"],
         decoration: BoxDecoration(
           image:

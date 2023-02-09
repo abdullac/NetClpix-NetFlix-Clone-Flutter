@@ -5,6 +5,7 @@ import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/variables/images.dart';
 import 'package:netclipxsample/core/variables/strings.dart';
 import 'package:netclipxsample/core/widgets/app_bar.dart';
+import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/bottom_appbar.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/buttons_area.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/image_container_widget.dart';
@@ -12,16 +13,15 @@ import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/im
 class ScrnDownloads extends StatelessWidget {
   const ScrnDownloads({Key? key}) : super(key: key);
 
+  /// Build function
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: false,
-      appBar: AppBarWidget("Downloads", const BottomAppBarWidget(), context),
+      appBar: appBarWidget("Downloads", const BottomAppBarWidget()),
       body: Stack(
-        children: [
-          const WidgetsListView(),
-          height11,
-          const ButtonsArea(),
+        children: const [
+          WidgetsListView(),
+          ButtonsArea(),
         ],
       ),
     );
@@ -47,70 +47,26 @@ class WidgetsListView extends StatelessWidget {
   }
 }
 
-class ImageStackArea extends StatelessWidget {
-  const ImageStackArea({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: screenDimonsion(screenHeight * 42 / 100, screenHeight * 100 / 100,
-          screenHeight * 55 / 100),
-      width: screenDimonsion(screenWidth * 65 / 100, screenWidth * 50 / 100,
-          screenHeight * 55 / 100),
-      child: Container(
-        alignment: Alignment.center,
-        height: screenDimonsion(screenWidth * 100 / 100, screenHeight * 90 / 100,screenHeight * 55 / 100),
-        width: screenDimonsion(screenWidth * 100 / 100, screenHeight * 90 / 100,screenHeight * 55 / 100),
-        child: Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            CircleAvatar(
-              radius: screenDimonsion(screenWidth*45/100, screenHeight*35/100, screenWidth*28/100),
-              backgroundColor: Colors.grey.withOpacity(0.4),
-            ),
-            ImageContainerWidget(
-                imagePosition: ImagePosition.left,
-                imageUrl: sampleVerticalImage),
-            ImageContainerWidget(
-                imagePosition: ImagePosition.right,
-                imageUrl: sampleVerticalImage),
-            ImageContainerWidget(
-                imagePosition: ImagePosition.center,
-                imageUrl: sampleVerticalImage),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class TextWidgetArea extends StatelessWidget {
   const TextWidgetArea({super.key});
 
   @override
   Widget build(BuildContext context) {
     var textWidgetsList = [
-      // height2,
       Text(
         mainTextString,
         style: textLarge(),
         textAlign: TextAlign.center,
       ),
-      // height1,
       Text(
         subTextString,
         style: textSmall(),
         textAlign: TextAlign.center,
       ),
-      // height1,
     ];
     return SizedBox(
-      width: screenDimonsion(screenWidth, screenWidth * 1 / 2, screenWidth),
-      height: screenDimonsion(
-          screenHeight * 25 / 100, screenHeight, screenHeight * 15 / 100),
+      width: textAreaWidth,
+      height: textAreaHeight,
       child: bigDimonsion == BigDimonsion.same
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -123,6 +79,48 @@ class TextWidgetArea extends StatelessWidget {
                   : MainAxisAlignment.center,
               children: textWidgetsList,
             ),
+    );
+  }
+}
+
+class ImageStackArea extends StatelessWidget {
+  const ImageStackArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      height: imageBaseContainerHeight,
+      width: imageBaseContainerWidth,
+      child: Container(
+        alignment: Alignment.center,
+        height: imageChildContainerHeight,
+        width: imageChildContainerWidth,
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            CircleAvatar(
+              radius: screenDimonsion(screenWidth * 45 / 100,
+                  screenHeight * 35 / 100, screenWidth * 28 / 100),
+              backgroundColor: Colors.grey.withOpacity(0.4),
+            ),
+            ImageContainerWidget(
+              imagePosition: ImagePosition.left,
+              imageUrl: sampleVerticalImage,
+            ),
+            ImageContainerWidget(
+              imagePosition: ImagePosition.right,
+              imageUrl: sampleVerticalImage,
+            ),
+            ImageContainerWidget(
+              imagePosition: ImagePosition.center,
+              imageUrl: sampleVerticalImage,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

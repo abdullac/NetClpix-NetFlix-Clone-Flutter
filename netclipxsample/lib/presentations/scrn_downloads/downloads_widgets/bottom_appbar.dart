@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 class BottomAppBarWidget extends StatelessWidget {
   const BottomAppBarWidget({
@@ -14,8 +13,13 @@ class BottomAppBarWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 25),
       child: Row(
         children: [
-          Icon(Icons.settings,size: screenDimonsion(screenWidth*7/100, screenHeight*5/100, screenHeight*4/100),),
-          SizedBox(width: 8,),
+          Icon(
+            Icons.settings,
+            size: bottomAppBarIconSize,
+          ),
+          const SizedBox(
+            width: 8,
+          ),
           Text(
             "Smart Download",
             style: textMedium(),
