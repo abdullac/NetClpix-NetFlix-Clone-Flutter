@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/core/functions/styles.dart';
 
 class ButtonWidget extends StatelessWidget {
   final double buttonWidth;
@@ -36,6 +37,7 @@ class ButtonWidget extends StatelessWidget {
           child: Text(
             buttonText,
             textAlign: TextAlign.center,
+            style: textMedium()?.copyWith(color: buttonTextColor,fontWeight: FontWeight.w600),
           ),
         ),
       ),

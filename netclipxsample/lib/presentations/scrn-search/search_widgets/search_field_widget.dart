@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SearchFieldWidgetArea extends StatelessWidget {
   SearchFieldWidgetArea({super.key});
@@ -68,6 +69,7 @@ class SearchFieldWidget extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(5)));
     return Opacity(
       opacity: newValue == false ? 0.0 : 1.0,
+
       /// text field area
       child: CupertinoTextField(
         controller: searchFieldController,
@@ -85,14 +87,16 @@ class SearchFieldWidget extends StatelessWidget {
     );
   }
 
-  void onTapOutSideField(event) {
-    //onTap outSide
-    searchFieldClickNotifier.value = false;
-  }
-
   void onTapField() {
     // onTap
     searchFieldClickNotifier.value = true;
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+    // overlays: [SystemUiOverlay.top]);
+  }
+
+  void onTapOutSideField(event) {
+    //onTap outSide
+    searchFieldClickNotifier.value = false;
   }
 }
 

@@ -23,7 +23,7 @@ class ScrnSearch extends StatelessWidget {
             TitleArea(
                 title: newValue.text == "" ? "Top Searches" : "Search Results"),
             SearchesWidget(
-                searchView: newValue.text != ""
+                searchView: newValue.text == ""
                     ? SearchView.topSearches
                     : SearchView.searchResult),
           ],

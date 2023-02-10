@@ -26,7 +26,7 @@ class VerticalImageContainerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         image:
             DecorationImage(image: NetworkImage(imageUrl), fit: BoxFit.cover),
-        borderRadius: const BorderRadius.all(Radius.circular(11)),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
         boxShadow: boxShadow ??
             [
               const BoxShadow(

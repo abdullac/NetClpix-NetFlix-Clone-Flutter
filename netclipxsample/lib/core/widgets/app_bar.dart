@@ -5,7 +5,7 @@ import 'package:netclipxsample/core/variables/dimonsions.dart';
 
 PreferredSize appBarWidget(String title, Widget bottomAppBar) {
   var appBarHeight = screenDimonsion(screenHeight * 9 / 100,
-      screenHeight * 15 / 100, screenHeight * 7.5 / 100);
+      screenHeight * 15 / 100, screenHeight * 10.1 / 100);
 
   var bottomAppBarHeight = screenDimonsion(screenHeight * 6 / 100,
       screenHeight * 10 / 100, screenHeight * 5.5 / 100);

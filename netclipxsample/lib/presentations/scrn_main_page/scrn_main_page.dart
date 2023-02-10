@@ -12,12 +12,13 @@ import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.d
 class ScrnMainPage extends StatelessWidget {
   ScrnMainPage({super.key});
 
+  static ValueNotifier<bool> bottomNavigationNotifier = ValueNotifier(true);
   // list of screens
   ValueNotifier<int> selectedIntexNotifier = ValueNotifier(3);
   List<Widget> screensList = <Widget>[
     const ScrnHome(),
     const ScrnNewAndHot(),
-     ScrnFastLaughs(),
+    const ScrnFastLaughs(),
     const ScrnSearch(),
     const ScrnDownloads(),
   ];
@@ -43,20 +44,53 @@ class ScrnMainPage extends StatelessWidget {
 
   // Bottom navigation bar widget
   Widget bottomNavigatinBar(int updatedIndex) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: BottomNavigationBar(
-        items: bottomNavigationBarItems(updatedIndex),
-        onTap: (selectedIndex) {
-          selectedIntexNotifier.value = selectedIndex;
-        },
-        currentIndex: selectedIntexNotifier.value,
-        iconSize: 25,
-        selectedItemColor: clrRed,
-        unselectedItemColor: clrWhite30,
-        showUnselectedLabels: true,
-        elevation: 5,
-        type: BottomNavigationBarType.fixed,
+    return ValueListenableBuilder(
+      valueListenable: bottomNavigationNotifier,
+      builder: (BuildContext context, newValue, Widget? _) => newValue == true 
+      ? 
+      Visibility(
+        visible: true,
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Container(
+            width: screenDimonsion(screenWidth, screenWidth * 1/2, screenWidth),
+            color: Colors.grey.withOpacity(0.5),
+            child: BottomNavigationBar(
+              items: bottomNavigationBarItems(updatedIndex),
+              onTap: (selectedIndex) {
+                selectedIntexNotifier.value = selectedIndex;
+              },
+              currentIndex: selectedIntexNotifier.value,
+              iconSize: 25,
+              selectedItemColor: clrRed,
+              unselectedItemColor: clrWhite30,
+              showUnselectedLabels: true,
+              elevation: 5,
+              type: BottomNavigationBarType.fixed,
+            ),
+          ),
+        ),
+      )
+      : bottomNavigationBarAsist(),
+    );
+  }
+
+  Widget bottomNavigationBarAsist(){
+    return Visibility(
+      visible: true,
+      child: Align(
+        alignment: Alignment.bottomLeft,
+        child: Opacity(
+          opacity: 0.7,
+          child: Container(
+            margin: EdgeInsets.all(5),
+            color: Colors.red,
+            child: IconButton(onPressed: (){
+              //
+              bottomNavigationNotifier.value = true;
+            }, icon: const Icon(Icons.open_in_new_rounded)),
+          ),
+        ),
       ),
     );
   }

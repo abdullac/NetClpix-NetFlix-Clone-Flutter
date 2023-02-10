@@ -19,7 +19,7 @@ class ScrnDownloads extends StatelessWidget {
     return Scaffold(
       appBar: appBarWidget("Downloads", const BottomAppBarWidget()),
       body: Stack(
-        children: const [
+        children:  const [
           WidgetsListView(),
           ButtonsArea(),
         ],
@@ -39,9 +39,10 @@ class WidgetsListView extends StatelessWidget {
     return ListView(
       scrollDirection:
           screenDimonsion(Axis.vertical, Axis.horizontal, Axis.vertical),
-      children: const <Widget>[
-        TextWidgetArea(),
-        ImageStackArea(),
+      children: <Widget>[
+        const TextWidgetArea(),
+        const ImageStackArea(),
+        SizedBox(height: screenHeight * 17.6 /100)
       ],
     );
   }
@@ -97,7 +98,7 @@ class ImageStackArea extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: imageChildContainerHeight,
-        width: imageChildContainerWidth,
+        width: /*imageChildContainerWidth*/double.infinity,
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: [
