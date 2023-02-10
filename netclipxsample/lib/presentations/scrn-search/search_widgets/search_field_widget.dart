@@ -64,7 +64,7 @@ class SearchFieldWidget extends StatelessWidget {
       icon: const Icon(Icons.close_rounded, color: Colors.grey),
     );
     var textFieldDecoration = BoxDecoration(
-        color: Colors.grey[800],
+        color: Colors.grey[900],
         borderRadius: const BorderRadius.all(Radius.circular(5)));
     return Opacity(
       opacity: newValue == false ? 0.0 : 1.0,

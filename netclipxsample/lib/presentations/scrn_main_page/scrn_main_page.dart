@@ -17,8 +17,8 @@ class ScrnMainPage extends StatelessWidget {
   List<Widget> screensList = <Widget>[
     const ScrnHome(),
     const ScrnNewAndHot(),
-    const ScrnFastLaughs(),
-    ScrnSearch(),
+     ScrnFastLaughs(),
+    const ScrnSearch(),
     const ScrnDownloads(),
   ];
 
@@ -29,15 +29,16 @@ class ScrnMainPage extends StatelessWidget {
     bigDimonsion = findDimonsion();
     print("bigDimonsion$bigDimonsion");
     return ValueListenableBuilder(
-        valueListenable: selectedIntexNotifier,
-        builder: (BuildContext context, updatedIndex, Widget? child) {
-          return Stack(
-            children: [
-              screensList[updatedIndex],
-              bottomNavigatinBar(updatedIndex),
-            ],
-          );
-        });
+      valueListenable: selectedIntexNotifier,
+      builder: (BuildContext context, updatedIndex, Widget? child) {
+        return Stack(
+          children: [
+            screensList[updatedIndex],
+            bottomNavigatinBar(updatedIndex),
+          ],
+        );
+      },
+    );
   }
 
   // Bottom navigation bar widget
