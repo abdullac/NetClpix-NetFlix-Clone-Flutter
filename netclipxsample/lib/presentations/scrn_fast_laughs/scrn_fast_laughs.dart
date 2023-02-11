@@ -3,6 +3,7 @@ import 'package:netclipxsample/core/functions/styles.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/images.dart';
 import 'package:netclipxsample/core/variables/videos.dart';
+import 'package:netclipxsample/core/widgets/round_icon_button.dart';
 import 'package:video_player/video_player.dart';
 
 class ScrnFastLaughs extends StatelessWidget {
@@ -16,19 +17,14 @@ class ScrnFastLaughs extends StatelessWidget {
         children: [
           PageView.builder(
             scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) => FastLaghsVideoWidget(index: index),
+            itemBuilder: (BuildContext context, int index) =>
+                FastLaghsVideoWidget(index: index),
           ),
-          Align(
+          const Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 60, left: 5),
-              child: CircleAvatar(
-                backgroundColor: Colors.black.withOpacity(0.4),
-                child: const Icon(
-                  Icons.volume_off,
-                  color: clrWhite,
-                ),
-              ),
+              padding: EdgeInsets.only(bottom: 60, left: 5),
+              child: RoundIconButton(icon: Icons.volume_off,),
             ),
           ),
           Positioned(
@@ -63,8 +59,6 @@ class ScrnFastLaughs extends StatelessWidget {
   }
 }
 
-
-
 class FastLaghsVideoWidget extends StatefulWidget {
   final int index;
   const FastLaghsVideoWidget({super.key, required this.index});
@@ -79,7 +73,8 @@ class _FastLaghsVideoWidgetState extends State<FastLaghsVideoWidget> {
   @override
   void initState() {
     super.initState();
-    _videoPlayerController = VideoPlayerController.network(dummyVideoUrls[widget.index % dummyVideoUrls.length])
+    _videoPlayerController = VideoPlayerController.network(
+        dummyVideoUrls[widget.index % dummyVideoUrls.length])
       ..initialize().then((_) {
         setState(() {});
         _videoPlayerController.play();

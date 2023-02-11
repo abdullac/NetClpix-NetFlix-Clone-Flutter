@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/core/widgets/icon_button_widget.dart';
+import 'package:netclipxsample/core/widgets/round_icon_button.dart';
+import 'package:netclipxsample/core/widgets/round_icon_text_button.dart';
 
 class CommingSoonWidget extends StatelessWidget {
   const CommingSoonWidget({
@@ -11,24 +12,35 @@ class CommingSoonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          Container(
-            width: 50,
-            color: Colors.red,
-          ),
-          Expanded(
-            child: ListView(
-              children: const [
-                ImageContainer(),
-                TitleAndActions(),
-                DescriptionsArea(),
-              ],
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) { 
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 50,
+              height: 50,
+              child: Column(
+                children: [
+                  Text("Jun",style: textMedium(),textAlign: TextAlign.center,),
+                  Text("12",style: textLarge(),textAlign: TextAlign.center,),
+                ],
+              ),
             ),
-          )
-        ],
-      ),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: const [
+                  ImageContainer(),
+                  TitleAndActions(),
+                  DescriptionsArea(),
+                ],
+              ),
+            )
+          ],
+        );
+       },
+      
     );
   }
 }
@@ -40,12 +52,18 @@ class ImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 200,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: NetworkImage(searchSampleImage), fit: BoxFit.cover)),
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 200,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(searchSampleImage), fit: BoxFit.cover)),
+        ),
+        const Positioned(right: 5,bottom: 5,
+          child: RoundIconButton(icon: Icons.volume_off))
+      ],
     );
   }
 }
@@ -69,13 +87,13 @@ class TitleAndActions extends StatelessWidget {
         ),
         Row(
           children: [
-            IconButtonWidget(
+            RoundIconTextButton(
               icon: Icons.notifications,
               title: "Remind me",
               size: const Size(60, 40),
               onTap: () {},
             ),
-            IconButtonWidget(
+            RoundIconTextButton(
               icon: Icons.info_rounded,
               title: "Info",
               size: const Size(40, 40),
@@ -99,17 +117,15 @@ class DescriptionsArea extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         descriptionText(
-          "Eloaded 1 of 732 librarariesReloaded 1 of 732 libraries in 280ms in ",
-        ),
+            "Eloaded 1 of 732 librarariesReloaded 1 of 732 libraries in 280ms in "),
         descriptionText(
-          "Reloaded 1 of 732 librariesReloaded 1 of 732 libraries in 280ms in 280ms ",
-          style: textMedium(),
-        ),
+            "Reloaded 1 of 732 librariesReloaded 1 of 732 libraries in 280ms in 280ms ",
+            style: textMedium()),
         descriptionText(
-          "Reloaded 1 of 732 librariesReloadeloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2ed 1eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2 of 732 libraries ieloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2n 280ms in 280ms ",
-          style: textSmall(),
-          isOneLine: false,
-        ),
+            "Reloaded 1 of 732 librariesReloadeloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2ed 1eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2 of 732 libraries ieloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2n 280ms in 280ms ",
+            style: textSmall(),
+            isOneLine: false),
+        const SizedBox(height: 30,),
       ],
     );
   }

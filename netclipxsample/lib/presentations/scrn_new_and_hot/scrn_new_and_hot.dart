@@ -21,11 +21,18 @@ class ScrnNewAndHot extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: appBarWidget(title: text, bottomAppBar: const TabBarWidget()),
-        body: const SafeArea(
-            child: TabBarView(children: [
-          CommingSoonWidget(),
-          EveryonesWatchingwidget(),
-        ])),
+        body: SafeArea(
+            child: Column(
+          children: const [
+            SizedBox(height: 15),
+            Expanded(
+              child: TabBarView(children: [
+                CommingSoonWidget(),
+                EveryonesWatchingwidget(),
+              ]),
+            ),
+          ],
+        )),
       ),
     );
   }
