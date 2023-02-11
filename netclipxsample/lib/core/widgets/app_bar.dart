@@ -3,7 +3,11 @@ import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
 import 'package:netclipxsample/core/variables/dimonsions.dart';
 
-PreferredSize appBarWidget(String title, Widget bottomAppBar) {
+PreferredSize appBarWidget({
+  required Widget title,
+  IconData? secondaryIcon,
+  required Widget bottomAppBar,
+}) {
   var appBarHeight = screenDimonsion(screenHeight * 9 / 100,
       screenHeight * 15 / 100, screenHeight * 10.1 / 100);
 
@@ -13,18 +17,21 @@ PreferredSize appBarWidget(String title, Widget bottomAppBar) {
   return PreferredSize(
       preferredSize: Size.fromHeight(appBarHeight),
       child: AppBar(
-        title: Text(title),
+        title: title,
         titleSpacing: 8,
         titleTextStyle: textLarge(),
-        actions: const [
-          Icon(
+        actions: [
+          const Icon(
             Icons.cast,
           ),
-          SizedBox(width: 4),
-          Icon(Icons.folder_open),
-          SizedBox(
-            width: 4,
-          )
+          const SizedBox(width: 4),
+          secondaryIcon != null ?
+              Row(
+                children: [
+                  Icon(secondaryIcon),
+                  SizedBox(width: 4),
+                ],
+              ) : SizedBox(),
         ],
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(bottomAppBarHeight),

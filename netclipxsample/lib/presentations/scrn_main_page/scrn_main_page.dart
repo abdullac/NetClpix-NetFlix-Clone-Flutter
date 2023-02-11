@@ -14,7 +14,7 @@ class ScrnMainPage extends StatelessWidget {
 
   static ValueNotifier<bool> bottomNavigationNotifier = ValueNotifier(true);
   // list of screens
-  ValueNotifier<int> selectedIntexNotifier = ValueNotifier(3);
+  ValueNotifier<int> selectedIntexNotifier = ValueNotifier(1);
   List<Widget> screensList = <Widget>[
     const ScrnHome(),
     const ScrnNewAndHot(),
@@ -81,9 +81,9 @@ class ScrnMainPage extends StatelessWidget {
       child: Align(
         alignment: Alignment.bottomLeft,
         child: Opacity(
-          opacity: 0.7,
+          opacity: 0.5,
           child: Container(
-            margin: EdgeInsets.all(5),
+            margin: const EdgeInsets.all(5),
             color: Colors.red,
             child: IconButton(onPressed: (){
               //
