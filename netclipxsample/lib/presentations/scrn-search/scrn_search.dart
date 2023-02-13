@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/widgets/title_area.dart';
 import 'package:netclipxsample/presentations/scrn-search/search_widgets/search_field_widget.dart';
+import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 import 'search_widgets/search_results_widget.dart';
 import 'search_widgets/top_searches_widget.dart';
 
@@ -57,16 +58,21 @@ class SearchesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: ifSearchView(screenDimonsion(1, 3, 2), screenDimonsion(3, 7, 4)),
-          crossAxisSpacing: ifSearchView(7.0, 3.0),
-          mainAxisSpacing: ifSearchView(5.0, 3.0),
-          childAspectRatio: ifSearchView(5.0, 0.6),
+      child: InkWell(
+        onTap: () {},
+        onHover: (value) => ScrnMainPage.bottomNavigationNotifier.value = BottomNavigationBarShow.invisible,
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: ifSearchView(
+                screenDimonsion(1, 3, 2), screenDimonsion(3, 7, 4)),
+            crossAxisSpacing: ifSearchView(7.0, 3.0),
+            mainAxisSpacing: ifSearchView(5.0, 3.0),
+            childAspectRatio: ifSearchView(5.0, 0.6),
+          ),
+          itemBuilder: (BuildContext context, int index) =>
+              ifSearchView(const TopSearchesWidget(), const SearchResults()),
+          itemCount: 15,
         ),
-        itemBuilder: (BuildContext context, int index) =>
-            ifSearchView(const TopSearchesWidget(), const SearchResults()),
-        itemCount: 15,
       ),
     );
   }

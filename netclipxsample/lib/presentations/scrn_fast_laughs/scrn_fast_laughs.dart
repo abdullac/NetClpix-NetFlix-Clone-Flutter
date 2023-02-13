@@ -4,6 +4,7 @@ import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/images.dart';
 import 'package:netclipxsample/core/variables/videos.dart';
 import 'package:netclipxsample/core/widgets/round_icon_button.dart';
+import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 import 'package:video_player/video_player.dart';
 
 class ScrnFastLaughs extends StatelessWidget {
@@ -15,16 +16,22 @@ class ScrnFastLaughs extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          PageView.builder(
-            scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) =>
-                FastLaghsVideoWidget(index: index),
+          InkWell(
+            onTap: () {},
+            onHover: (value) => ScrnMainPage.bottomNavigationNotifier.value = BottomNavigationBarShow.transparent,
+            child: PageView.builder(
+              scrollDirection: Axis.vertical,
+              itemBuilder: (BuildContext context, int index) =>
+                  FastLaghsVideoWidget(index: index),
+            ),
           ),
           const Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
               padding: EdgeInsets.only(bottom: 60, left: 5),
-              child: RoundIconButton(icon: Icons.volume_off,),
+              child: RoundIconButton(
+                icon: Icons.volume_off,
+              ),
             ),
           ),
           Positioned(

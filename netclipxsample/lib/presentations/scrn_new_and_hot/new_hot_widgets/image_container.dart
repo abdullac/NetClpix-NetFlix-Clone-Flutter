@@ -1,11 +1,7 @@
-
-
-
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/variables/images.dart';
 import 'package:netclipxsample/core/widgets/round_icon_button.dart';
+import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_dimonsions.dart';
 
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
@@ -19,14 +15,22 @@ class ImageContainer extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            width: screenDimonsion(double.infinity, screenHeight*100/100, screenHeight*60/100),
-            height: screenDimonsion(screenWidth*65/100, screenHeight*60/100, screenHeight*36/100),
+            width: imageContainerWidth,
+            height: imageContainerHeight,
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(searchSampleImage), fit: BoxFit.cover)),
+              image: DecorationImage(
+                image: NetworkImage(searchSampleImage),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           const Positioned(
-              right: 5, bottom: 5, child: RoundIconButton(icon: Icons.volume_off))
+            right: 5,
+            bottom: 5,
+            child: RoundIconButton(
+              icon: Icons.volume_off,
+            ),
+          )
         ],
       ),
     );

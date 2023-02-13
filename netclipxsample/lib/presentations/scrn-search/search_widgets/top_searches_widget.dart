@@ -3,7 +3,6 @@ import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
 import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 
 class TopSearchesWidget extends StatelessWidget {
   const TopSearchesWidget({
@@ -65,21 +64,6 @@ class TopSearchesWidget extends StatelessWidget {
             ],
           ),
         ),
-        Opacity(
-          opacity: 0.0,
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const SizedBox(),
-              onHover: (value) {
-                //
-                ScrnMainPage.bottomNavigationNotifier.value = false;
-              },
-            ),
-          ),
-        )
       ],
     );
   }

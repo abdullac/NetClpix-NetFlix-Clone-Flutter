@@ -19,18 +19,24 @@ class DescriptionsArea extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         comingOnDate != null
-            ? descriptionText(comingOnDate!)   /// coming on date text
+            ? descriptionText(comingOnDate!)
+
+            /// coming on date text
             : const SizedBox(),
-        descriptionText(                      /// description title
+        descriptionText(
+
+            /// description title
             "Reloaded 1 of  7a",
             style: textMedium(),
             centerDescription: centerDescriptionTitle),
-        descriptionText(                      /// description
+        descriptionText(
+
+            /// description
             "Reloaded 1 of 732 librariesReloadeloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2ed 1eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2 of 732 libraries ieloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2n 280ms in 280ms ",
             style: textSmall(),
             isOneLine: false),
         SizedBox(
-          height: screenDimonsion(screenHeight*4/100, screenHeight*4/100, screenHeight*4/100),
+          height: screenHeight * 4 / 100,
         ),
       ],
     );
@@ -41,7 +47,7 @@ class DescriptionsArea extends StatelessWidget {
       TextStyle? style,
       bool centerDescription = false}) {
     return SizedBox(
-      width: double.infinity,
+      width: null,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Text(
