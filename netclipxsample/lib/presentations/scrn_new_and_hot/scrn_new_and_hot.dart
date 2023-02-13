@@ -22,8 +22,8 @@ class ScrnNewAndHot extends StatelessWidget {
         ),
         body: SafeArea(
             child: InkWell(
-          onTap: () {},
-          onHover: (value) => ScrnMainPage.bottomNavigationNotifier.value = BottomNavigationBarShow.invisible,
+          onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier.value =
+              BottomNavigationBarShow.invisible,
           child: Column(
             children: const [
               SizedBox(height: 15),

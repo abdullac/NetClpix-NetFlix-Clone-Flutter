@@ -18,7 +18,8 @@ enum BottomNavigationBarShow {
 class ScrnMainPage extends StatelessWidget {
   ScrnMainPage({super.key});
 
-  static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier = ValueNotifier(BottomNavigationBarShow.visible);
+  static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
+      ValueNotifier(BottomNavigationBarShow.visible);
   // list of screens
   ValueNotifier<int> selectedIntexNotifier = ValueNotifier(1);
   List<Widget> screensList = <Widget>[
@@ -55,12 +56,12 @@ class ScrnMainPage extends StatelessWidget {
         builder: (BuildContext context, newValue, Widget? _) {
           if (newValue == BottomNavigationBarShow.visible) {
             return bottomNavigationBar(updatedIndex);
-          } else if(newValue == BottomNavigationBarShow.transparent){
-            return Opacity(opacity: 0.3,
-            child: bottomNavigationBar(updatedIndex));
-          }else if(newValue == BottomNavigationBarShow.invisible){
+          } else if (newValue == BottomNavigationBarShow.transparent) {
+            return Opacity(
+                opacity: 0.3, child: bottomNavigationBar(updatedIndex));
+          } else if (newValue == BottomNavigationBarShow.invisible) {
             return bottomNavigationBarAsist();
-          }else{
+          } else {
             return const SizedBox();
           }
         });
@@ -76,7 +77,8 @@ class ScrnMainPage extends StatelessWidget {
           items: bottomNavigationBarItems(updatedIndex),
           onTap: (selectedIndex) {
             selectedIntexNotifier.value = selectedIndex;
-            ScrnMainPage.bottomNavigationNotifier.value = BottomNavigationBarShow.visible;
+            ScrnMainPage.bottomNavigationNotifier.value =
+                BottomNavigationBarShow.visible;
           },
           currentIndex: selectedIntexNotifier.value,
           iconSize: 25,
@@ -103,7 +105,8 @@ class ScrnMainPage extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   //
-                  bottomNavigationNotifier.value = BottomNavigationBarShow.visible;
+                  bottomNavigationNotifier.value =
+                      BottomNavigationBarShow.visible;
                 },
                 icon: const Icon(Icons.open_in_new_rounded)),
           ),

@@ -59,8 +59,8 @@ class SearchesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: () {},
-        onHover: (value) => ScrnMainPage.bottomNavigationNotifier.value = BottomNavigationBarShow.invisible,
+        onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier.value =
+            BottomNavigationBarShow.invisible,
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: ifSearchView(

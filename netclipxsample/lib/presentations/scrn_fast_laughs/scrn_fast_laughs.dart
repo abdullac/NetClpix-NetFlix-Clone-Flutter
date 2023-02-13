@@ -17,8 +17,8 @@ class ScrnFastLaughs extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           InkWell(
-            onTap: () {},
-            onHover: (value) => ScrnMainPage.bottomNavigationNotifier.value = BottomNavigationBarShow.transparent,
+            onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier
+                .value = BottomNavigationBarShow.transparent,
             child: PageView.builder(
               scrollDirection: Axis.vertical,
               itemBuilder: (BuildContext context, int index) =>
