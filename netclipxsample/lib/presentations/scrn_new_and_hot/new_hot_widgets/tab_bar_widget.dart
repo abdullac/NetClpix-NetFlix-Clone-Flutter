@@ -4,6 +4,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/core/functions/dimonsions.dart';
+import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/core/variables/dimonsions.dart';
 
 class TabBarWidget extends StatelessWidget {
   const TabBarWidget({
@@ -44,11 +47,12 @@ class TabBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(screenHeight * 0.5/100),
       child: Text(
         " $emogi $text",
         maxLines: 1,
         textAlign: TextAlign.center,
+        style: TextStyle(fontSize: screenDimonsion(screenWidth*4.5/100, screenHeight*7.5/100,screenWidth*2.7/100),fontWeight: FontWeight.w500),
       ),
     );
   }

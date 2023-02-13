@@ -21,17 +21,17 @@ PreferredSize appBarWidget({
         titleSpacing: 8,
         titleTextStyle: textLarge(),
         actions: [
-          const Icon(
-            Icons.cast,
+          Icon(
+            Icons.cast,size: screenHeight * 5 / 100,
           ),
           const SizedBox(width: 4),
           secondaryIcon != null ?
               Row(
                 children: [
                   Icon(secondaryIcon),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                 ],
-              ) : SizedBox(),
+              ) : const SizedBox(),
         ],
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(bottomAppBarHeight),

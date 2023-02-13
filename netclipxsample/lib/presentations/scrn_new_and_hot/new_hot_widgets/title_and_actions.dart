@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/widgets/round_icon_text_button.dart';
 
 class TitleAndActions extends StatelessWidget {
@@ -28,7 +30,7 @@ class TitleAndActions extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 50,
+          height: screenDimonsion(screenWidth*12/100, screenHeight*14/100,screenWidth*7.5/100),
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -36,7 +38,7 @@ class TitleAndActions extends StatelessWidget {
             itemBuilder: (context, index) {
               return Row(
                 children: [
-                  const SizedBox(width: 5,),
+                  const SizedBox(width: 5),
                   roundIconTextButtonItering(actionsCount,buttonIconList,buttonTitleList)[index],
                 ],
               );
