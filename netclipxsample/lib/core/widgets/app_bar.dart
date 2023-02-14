@@ -18,22 +18,31 @@ PreferredSize appBarWidget({
   return PreferredSize(
       preferredSize: Size.fromHeight(appBarHeight),
       child: AppBar(
-        backgroundColor: Colors.black.withOpacity(isOpacity==true ? 0.3 : 1),
+        backgroundColor: Colors.black.withOpacity(isOpacity == true ? 0.3 : 1),
         title: title,
         titleSpacing: 8,
         titleTextStyle: textLarge(),
         actions: [
-          Icon(
-            Icons.cast,size: screenHeight * 5 / 100,
+          IconButton(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+            iconSize: screenHeight * 4.6 / 100,
+            onPressed: () {},
+            icon: const Icon(Icons.cast),
           ),
-          const SizedBox(width: 4),
-          secondaryIcon != null ?
-              Row(
-                children: [
-                  Icon(secondaryIcon,size: screenHeight * 5 / 100,),
-                  const SizedBox(width: 4),
-                ],
-              ) : const SizedBox(),
+          secondaryIcon != null
+              ? Row(
+                  children: [
+                    IconButton(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 0),
+                      iconSize: screenHeight * 4.7 / 100,
+                      onPressed: () {},
+                      icon: Icon(secondaryIcon),
+                    ),
+                    const SizedBox(width: 4),
+                  ],
+                )
+              : const SizedBox(),
         ],
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(bottomAppBarHeight),

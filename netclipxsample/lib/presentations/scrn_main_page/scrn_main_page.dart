@@ -21,7 +21,7 @@ class ScrnMainPage extends StatelessWidget {
   static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
       ValueNotifier(BottomNavigationBarShow.visible);
 
-  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
+  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(4);
 
   // list of screens
   final List<Widget> screensList = <Widget>[

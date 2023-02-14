@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 class BottomAppBarWidget extends StatelessWidget {
@@ -13,17 +14,18 @@ class BottomAppBarWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 25),
       child: Row(
         children: [
-          Icon(
-            Icons.settings,
-            size: bottomAppBarIconSize,
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          Text(
-            "Smart Download",
-            style: textMedium(),
-          ),
+          TextButton.icon(
+            onPressed: () {},
+            icon: Icon(
+              Icons.settings,
+              size: bottomAppBarIconSize,
+              color: clrWhite,
+            ),
+            label: Text(
+              "Smart Download",
+              style: textMedium(),
+            ),
+          )
         ],
       ),
     );

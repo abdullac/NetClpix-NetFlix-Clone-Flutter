@@ -3,7 +3,10 @@ import 'package:netclipxsample/core/functions/styles.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/images.dart';
 import 'package:netclipxsample/core/variables/videos.dart';
+import 'package:netclipxsample/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/core/widgets/round_icon_button.dart';
+import 'package:netclipxsample/presentations/scrn_fast_laughs/fastlaugh_widgets/fastluagh_action_widgets.dart';
+import 'package:netclipxsample/presentations/scrn_fast_laughs/fastlaugh_widgets/video_widget.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 import 'package:video_player/video_player.dart';
 
@@ -41,9 +44,12 @@ class ScrnFastLaughs extends StatelessWidget {
               children: [
                 Container(
                     padding: const EdgeInsets.only(right: 8, bottom: 3),
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundImage: NetworkImage(searchSampleImage),
+                    child: InkWell(
+                      onTap: () {},
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundImage: NetworkImage(searchSampleImage),
+                      ),
                     )),
                 Column(
                   children: const [
@@ -66,73 +72,6 @@ class ScrnFastLaughs extends StatelessWidget {
   }
 }
 
-class FastLaghsVideoWidget extends StatefulWidget {
-  final int index;
-  const FastLaghsVideoWidget({super.key, required this.index});
-
-  @override
-  State<FastLaghsVideoWidget> createState() => _FastLaghsVideoWidgetState();
-}
-
-class _FastLaghsVideoWidgetState extends State<FastLaghsVideoWidget> {
-  late VideoPlayerController _videoPlayerController;
-
-  @override
-  void initState() {
-    super.initState();
-    _videoPlayerController = VideoPlayerController.network(
-        dummyVideoUrls[widget.index % dummyVideoUrls.length])
-      ..initialize().then((_) {
-        setState(() {});
-        _videoPlayerController.play();
-      });
-  }
-
-  @override
-  void dispose() {
-    _videoPlayerController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: _videoPlayerController.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: VideoPlayer(_videoPlayerController),
-            )
-          : const SizedBox(),
-    );
-  }
-}
-
-class FastLaughsActionWidgest extends StatelessWidget {
-  final IconData actionIcon;
-  final String actionTitle;
-  const FastLaughsActionWidgest(
-      {super.key, required this.actionIcon, required this.actionTitle});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(2.0),
-      child: Container(
-        margin: const EdgeInsets.only(right: 8, bottom: 3, top: 3),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              actionIcon,
-              color: clrWhite,
-            ),
-            Text(actionTitle, style: textMedium()),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 
 ///////////////////////////////////////////////////

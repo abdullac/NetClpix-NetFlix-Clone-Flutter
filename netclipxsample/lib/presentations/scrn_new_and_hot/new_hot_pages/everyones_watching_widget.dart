@@ -13,7 +13,7 @@ class EveryonesWatchingwidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 1,
+      itemCount: 5,
       shrinkWrap: true,
       scrollDirection:
           screenDimonsion(Axis.vertical, Axis.vertical, Axis.horizontal),
