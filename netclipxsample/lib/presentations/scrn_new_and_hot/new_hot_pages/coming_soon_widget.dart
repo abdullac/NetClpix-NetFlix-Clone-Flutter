@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_styles_directions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_widgets/description_area.dart';
@@ -80,18 +81,25 @@ class ComingsoonDetailsArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final iconTextButtonsList = [
+    IconTextButton(icon: Icons.notifications, title: "Remind me", onTap: () {}),
+    IconTextButton(icon: Icons.info_rounded, title: "Info", onTap: () {}),
+  ];
     return SizedBox(
       width: detailsAreaWidth,
       // height: screenDimonsion(null, null, null),
       child: Column(
-        children: const [
+        children: [
           TitleAndActions(
-              title:
-                  "Eloaded 1 of 732 librarariesReloaded 1 of 732 libraries in 280ms in ",
-              actionsCount: 2,
-              buttonIconList: [Icons.notifications, Icons.info_rounded],
-              buttonTitleList: ["Remind me", "Info"]),
-          DescriptionsArea(
+            title:
+                "Eloaded 1 of 732 librarariesReloaded 1 of 732 libraries in 280ms in ",
+            iconTextButtonList: iconTextButtonsList,
+            // actionsCount: 2,
+            // buttonIconList: [Icons.notifications, Icons.info_rounded],
+            // buttonTitleList: ["Remind me", "Info"],
+          ),
+          const DescriptionsArea(
               comingOnDate:
                   "Eloaded 1 of 732 librarariesReloaded 1 of 732 libraries in 280ms in "),
         ],

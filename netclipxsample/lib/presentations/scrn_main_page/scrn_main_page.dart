@@ -3,6 +3,7 @@ import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/variables/colors.dart';
 import 'package:netclipxsample/core/variables/dimonsions.dart';
 import 'package:netclipxsample/core/variables/icons.dart';
+import 'package:netclipxsample/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/scrn_downloads.dart';
 import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.dart';
@@ -21,7 +22,7 @@ class ScrnMainPage extends StatelessWidget {
   static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
       ValueNotifier(BottomNavigationBarShow.visible);
 
-  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(4);
+  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
 
   // list of screens
   final List<Widget> screensList = <Widget>[
@@ -81,6 +82,7 @@ class ScrnMainPage extends StatelessWidget {
             selectedIntexNotifier.value = selectedIndex;
             ScrnMainPage.bottomNavigationNotifier.value =
                 BottomNavigationBarShow.visible;
+              appBarShowNotifier.value = true;
           },
           currentIndex: selectedIntexNotifier.value,
           iconSize: 25,

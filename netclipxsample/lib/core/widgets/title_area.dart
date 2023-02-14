@@ -14,9 +14,12 @@ class TitleArea extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Text(
-        title,
-        style: textLarge(),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 7),
+        child: Text(
+          title,
+          style: textLarge(),
+        ),
       ),
     );
   }
