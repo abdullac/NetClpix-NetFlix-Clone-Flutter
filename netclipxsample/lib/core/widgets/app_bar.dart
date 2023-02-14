@@ -6,6 +6,7 @@ import 'package:netclipxsample/core/variables/dimonsions.dart';
 PreferredSize appBarWidget({
   required Widget title,
   IconData? secondaryIcon,
+  bool? isOpacity,
   required Widget bottomAppBar,
 }) {
   var appBarHeight = screenDimonsion(screenHeight * 9 / 100,
@@ -17,6 +18,7 @@ PreferredSize appBarWidget({
   return PreferredSize(
       preferredSize: Size.fromHeight(appBarHeight),
       child: AppBar(
+        backgroundColor: Colors.black.withOpacity(isOpacity==true ? 0.3 : 1),
         title: title,
         titleSpacing: 8,
         titleTextStyle: textLarge(),
@@ -28,7 +30,7 @@ PreferredSize appBarWidget({
           secondaryIcon != null ?
               Row(
                 children: [
-                  Icon(secondaryIcon),
+                  Icon(secondaryIcon,size: screenHeight * 5 / 100,),
                   const SizedBox(width: 4),
                 ],
               ) : const SizedBox(),

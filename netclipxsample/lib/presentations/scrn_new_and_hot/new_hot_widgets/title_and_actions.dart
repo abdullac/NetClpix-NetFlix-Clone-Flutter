@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
-import 'package:netclipxsample/core/widgets/round_icon_text_button.dart';
+import 'package:netclipxsample/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_dimonsions.dart';
 
 class TitleAndActions extends StatelessWidget {
@@ -63,7 +63,7 @@ class TitleAndActions extends StatelessWidget {
     List<Widget> widgetList = [];
     for (int index = 0; index < count; index++) {
       widgetList.add(
-        RoundIconTextButton(
+        IconTextButton(
           icon: iconList[index],
           title: titleList[index],
           // size: const Size(60, 40),
