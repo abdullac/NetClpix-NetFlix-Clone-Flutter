@@ -3,7 +3,6 @@ import 'package:netclipxsample/core/functions/dimonsions.dart';
 import 'package:netclipxsample/core/functions/styles.dart';
 import 'package:netclipxsample/core/variables/dimonsions.dart';
 
-
 class IconTextButton extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -21,10 +20,7 @@ class IconTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Colors.grey[800],
-      onTap: () {
-        //
-        onTap;
-      },
+      onTap: onTap,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

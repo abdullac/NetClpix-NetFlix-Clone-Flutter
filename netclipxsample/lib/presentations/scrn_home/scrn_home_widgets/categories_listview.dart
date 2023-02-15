@@ -7,6 +7,7 @@ import 'package:netclipxsample/core/variables/images.dart';
 import 'package:netclipxsample/core/widgets/title_area.dart';
 import 'package:netclipxsample/core/widgets/vertical_image_container.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
+import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/main_image.dart';
 
 class CategoriesListView extends StatelessWidget {
   CategoriesListView({
@@ -31,56 +32,64 @@ class CategoriesListView extends StatelessWidget {
         shrinkWrap: true,
         itemCount: titleList.length,
         itemBuilder: (BuildContext ctx, int parentIndex) {
-          return Container(
-            height: 170,
-            margin: const EdgeInsets.all(1),
-            child: Column(
-              children: [
-                TitleArea(title: titleList[parentIndex]),
-                Expanded(
-                  child: ListView.separated(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Stack(
-                        children: [
-                          Container(
-                            height: double.infinity,
-                            padding: EdgeInsets.only(
-                                left: parentIndex % 3 == 2 ? 28 : 7),
-                            child: VerticalImageContainerWidget(
-                              width: 90,
-                              height: 90,
-                              imageUrl: sampleVerticalImage,
-                            ),
-                          ),
-                          parentIndex % 3 == 2
-                              ? Positioned(
-                                  bottom: -17,
-                                  left: -7,
-                                  child: BorderedText(
-                                      strokeColor: clrWhite,
-                                      strokeWidth: 2.0,
-                                      child: Text(
-                                        "${index + 1}",
-                                        style: const TextStyle(
-                                            fontSize: 90,
-                                            color: clrBlack,
-                                            fontWeight: FontWeight.w500),
-                                      )))
-                              : const SizedBox(),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const SizedBox(
-                            // width: 7,
-                            // height: 7,
-                            ),
-                  ),
+          return Column(
+            children: [
+              screenDimonsion(
+                  parentIndex == 0 ? const MainImage() : const SizedBox(),
+                  const SizedBox(),
+                  const SizedBox()),
+              Container(
+                height: 200,
+                margin: const EdgeInsets.all(1),
+                child: Column(
+                  children: [
+                    TitleArea(title: titleList[parentIndex]),
+                    Expanded(
+                      child: ListView.separated(
+                        itemCount: 10,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Stack(
+                            children: [
+                              Container(
+                                height: double.infinity,
+                                padding: EdgeInsets.only(
+                                    left: parentIndex % 3 == 2 ? 28 : 7),
+                                child: VerticalImageContainerWidget(
+                                  width: 110,
+                                  height: 100,
+                                  imageUrl: sampleVerticalImage,
+                                ),
+                              ),
+                              parentIndex % 3 == 2
+                                  ? Positioned(
+                                      bottom: -17,
+                                      left: index == 0 ? 5 : -7,
+                                      child: BorderedText(
+                                          strokeColor: clrWhite,
+                                          strokeWidth: 2.0,
+                                          child: Text(
+                                            "${index + 1}",
+                                            style: const TextStyle(
+                                                fontSize: 90,
+                                                color: clrBlack,
+                                                fontWeight: FontWeight.w500),
+                                          )))
+                                  : const SizedBox(),
+                            ],
+                          );
+                        },
+                        separatorBuilder: (BuildContext context, int index) =>
+                            const SizedBox(
+                                // width: 7,
+                                // height: 7,
+                                ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
       ),

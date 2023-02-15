@@ -83,8 +83,8 @@ class ComingsoonDetailsArea extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final iconTextButtonsList = [
-    IconTextButton(icon: Icons.notifications, title: "Remind me", onTap: () {}),
-    IconTextButton(icon: Icons.info_rounded, title: "Info", onTap: () {}),
+    IconTextButton(icon: Icons.notifications, title: "Remind me", onTap: () {print("remind me");}),
+    IconTextButton(icon: Icons.info_rounded, title: "Info", onTap: () {print("info");}),
   ];
     return SizedBox(
       width: detailsAreaWidth,

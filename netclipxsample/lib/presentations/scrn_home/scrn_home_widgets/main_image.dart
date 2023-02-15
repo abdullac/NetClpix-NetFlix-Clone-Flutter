@@ -29,10 +29,10 @@ class MainImage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconTextButton(icon: Icons.add, title: "My List", onTap: () {}),
+                IconTextButton(icon: Icons.add, title: "My List", onTap: () {print("my list");}),
                 const ElevatedIconButton(),
                 IconTextButton(
-                    icon: Icons.info_outline, title: "Info", onTap: () {}),
+                    icon: Icons.info_outline, title: "Info", onTap: () {print("info");}),
               ],
             ),
           )

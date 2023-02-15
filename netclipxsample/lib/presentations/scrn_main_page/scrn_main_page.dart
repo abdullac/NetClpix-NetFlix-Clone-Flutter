@@ -61,7 +61,7 @@ class ScrnMainPage extends StatelessWidget {
             return bottomNavigationBar(updatedIndex);
           } else if (newValue == BottomNavigationBarShow.transparent) {
             return Opacity(
-                opacity: 0.3, child: bottomNavigationBar(updatedIndex));
+                opacity: 0.6, child: bottomNavigationBar(updatedIndex));
           } else if (newValue == BottomNavigationBarShow.invisible) {
             return bottomNavigationBarAsist();
           } else {

@@ -17,7 +17,7 @@ class ScrnHome extends StatelessWidget {
     var columnView = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const MainImage(),
+        // const MainImage(),      ////  change to parent list view of categoryListView
         CategoriesListView(),
       ],
     );
