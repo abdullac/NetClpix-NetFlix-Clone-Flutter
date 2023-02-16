@@ -2,7 +2,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/widgets/icon_text_button.dart';
+import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 
 class FastLaughsActionWidgest extends StatelessWidget {
   final IconData actionIcon;

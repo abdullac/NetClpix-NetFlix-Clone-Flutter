@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/core/widgets/vertical_image_container.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
+import 'package:netclipxsample/presentations/core/widgets/vertical_image_container.dart';
 
 class SearchResults extends StatelessWidget {
   const SearchResults({super.key});

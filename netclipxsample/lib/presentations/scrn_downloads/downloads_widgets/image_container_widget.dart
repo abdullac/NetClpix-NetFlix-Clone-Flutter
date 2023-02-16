@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/widgets/vertical_image_container.dart';
+import 'package:netclipxsample/presentations/core/widgets/vertical_image_container.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 enum ImagePosition {

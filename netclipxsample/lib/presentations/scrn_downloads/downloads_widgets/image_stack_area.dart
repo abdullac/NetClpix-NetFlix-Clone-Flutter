@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
-import 'package:netclipxsample/core/variables/images.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/image_container_widget.dart';
 

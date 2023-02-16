@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/core/widgets/icon_text_button.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
+import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/elevated_icon_button.dart';
 

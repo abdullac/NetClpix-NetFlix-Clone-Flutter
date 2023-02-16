@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
-import 'package:netclipxsample/core/widgets/icon_text_button.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_styles_directions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_widgets/description_area.dart';

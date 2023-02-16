@@ -1,4 +1,4 @@
-import 'package:netclipxsample/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 
 enum BigDimonsion {
   height,

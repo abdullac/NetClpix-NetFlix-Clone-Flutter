@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/variables/colors.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
-import 'package:netclipxsample/core/variables/icons.dart';
-import 'package:netclipxsample/core/widgets/app_bar.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/icons.dart';
+import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/scrn_downloads.dart';
 import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.dart';

@@ -1,7 +1,7 @@
 
-    import 'package:netclipxsample/core/functions/dimonsions.dart';
+    import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 
-import '../../../core/variables/dimonsions.dart';
+import '../../core/variables/dimonsions.dart';
 
 var mainImageHeight = screenDimonsion(screenHeight * 80 / 100,
         screenHeight * 83 / 100, screenHeight * 83 / 100);

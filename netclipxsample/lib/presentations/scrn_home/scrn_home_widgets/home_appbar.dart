@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
-import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/core/widgets/app_bar.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
+import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 
   PreferredSize homeAppBarWidget() {
     return appBarWidget(

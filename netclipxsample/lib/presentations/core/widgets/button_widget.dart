@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
 
 class ButtonWidget extends StatelessWidget {
   final double buttonWidth;

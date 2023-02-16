@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 
 class IconTextButton extends StatelessWidget {
   final IconData icon;

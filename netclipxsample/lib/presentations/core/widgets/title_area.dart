@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
 
 class TitleArea extends StatelessWidget {
   final String title;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/variables/colors.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
-import 'package:netclipxsample/core/widgets/button_widget.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/widgets/button_widget.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 class ButtonsArea extends StatelessWidget {

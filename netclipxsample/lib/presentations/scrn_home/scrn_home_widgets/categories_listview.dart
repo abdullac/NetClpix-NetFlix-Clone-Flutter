@@ -1,11 +1,11 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/variables/colors.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
-import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/core/widgets/title_area.dart';
-import 'package:netclipxsample/core/widgets/vertical_image_container.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
+import 'package:netclipxsample/presentations/core/widgets/title_area.dart';
+import 'package:netclipxsample/presentations/core/widgets/vertical_image_container.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/main_image.dart';
 

@@ -1,6 +1,6 @@
-import 'package:netclipxsample/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 
-import '../../../core/variables/dimonsions.dart';
+import '../../core/variables/dimonsions.dart';
 
 var comingsoonParentListviewWidth =
     screenDimonsion(null, double.infinity, null);

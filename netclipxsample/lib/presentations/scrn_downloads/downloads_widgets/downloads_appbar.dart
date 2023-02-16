@@ -1,5 +1,5 @@
  import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/widgets/app_bar.dart';
+import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/bottom_appbar.dart';
 
 PreferredSize downloadsAppbar() {

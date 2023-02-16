@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/buttons_area.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/downloads_appbar.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/image_stack_area.dart';

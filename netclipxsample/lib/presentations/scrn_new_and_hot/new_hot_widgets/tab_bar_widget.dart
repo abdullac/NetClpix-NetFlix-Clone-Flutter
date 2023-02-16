@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_styles_directions.dart';
 
 class TabBarWidget extends StatelessWidget {

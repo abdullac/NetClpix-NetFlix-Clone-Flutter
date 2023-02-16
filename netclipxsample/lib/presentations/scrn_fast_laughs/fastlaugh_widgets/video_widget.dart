@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/variables/videos.dart';
+import 'package:netclipxsample/presentations/core/variables/videos.dart';
 import 'package:video_player/video_player.dart';
 
 class FastLaghsVideoWidget extends StatefulWidget {

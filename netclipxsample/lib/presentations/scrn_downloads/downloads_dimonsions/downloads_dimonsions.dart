@@ -1,7 +1,7 @@
-import 'package:netclipxsample/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/image_container_widget.dart';
 
-import '../../../core/variables/dimonsions.dart';
+import '../../core/variables/dimonsions.dart';
 
 var textAreaWidth =
     screenDimonsion(screenWidth, screenWidth * 1 / 2, screenWidth);

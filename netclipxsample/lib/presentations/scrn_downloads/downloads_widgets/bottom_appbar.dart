@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
-import 'package:netclipxsample/core/variables/colors.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
 class BottomAppBarWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class BottomAppBarWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 25),
       child: Row(
         children: [
-          TextButton.icon(
+          TextButton.icon(style: ButtonStyle(padding: MaterialStateProperty.all(const EdgeInsets.all(0))),
             onPressed: () {},
             icon: Icon(
               Icons.settings,

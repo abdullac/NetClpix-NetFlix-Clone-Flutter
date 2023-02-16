@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/widgets/app_bar.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_direction_style.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/home_appbar.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/categories_listview.dart';
@@ -14,13 +14,13 @@ class ScrnHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var columnView = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // const MainImage(),      ////  change to parent list view of categoryListView
-        CategoriesListView(),
-      ],
-    );
+    // var columnView = Column(
+    //   crossAxisAlignment: CrossAxisAlignment.start,
+    //   children: [
+    //     // const MainImage(),      ////  change to parent list view of categoryListView
+    //     // CategoriesListView(),
+    //   ],
+    // );
     var rowView = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -49,7 +49,7 @@ class ScrnHome extends StatelessWidget {
             padding: const EdgeInsets.only(top: 0),
             scrollDirection: parentListviewDirection,
             children: [
-              screenDimonsion(columnView, rowView, rowView),
+              screenDimonsion(/*columnView*/CategoriesListView(), rowView, rowView),
             ],
           ),
         ),

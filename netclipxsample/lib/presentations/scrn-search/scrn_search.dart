@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/dimonsions.dart';
-import 'package:netclipxsample/core/widgets/title_area.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/widgets/title_area.dart';
 import 'package:netclipxsample/presentations/scrn-search/search_widgets/search_field_widget.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 import 'search_widgets/search_results_widget.dart';

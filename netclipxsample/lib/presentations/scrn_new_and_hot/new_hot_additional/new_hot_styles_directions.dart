@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_widgets/image_container.dart';
-import '../../../core/functions/dimonsions.dart';
-import '../../../core/variables/dimonsions.dart';
+import '../../core/functions/dimonsions.dart';
+import '../../core/variables/dimonsions.dart';
 
 //////     styles
 

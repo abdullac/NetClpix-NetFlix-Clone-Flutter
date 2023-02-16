@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/variables/colors.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
 
 class ElevatedIconButton extends StatelessWidget {
   const ElevatedIconButton({

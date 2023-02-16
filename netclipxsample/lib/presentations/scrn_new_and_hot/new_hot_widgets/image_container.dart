@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/core/variables/images.dart';
-import 'package:netclipxsample/core/widgets/round_icon_button.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
+import 'package:netclipxsample/presentations/core/widgets/round_icon_button.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_dimonsions.dart';
 
 class ImageContainer extends StatelessWidget {
