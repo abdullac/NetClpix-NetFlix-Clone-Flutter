@@ -51,4 +51,4 @@ macos
 linux
 
 # projet related (apiKeys)
-lib/infrastructure/api_keys/api_key.dart
+lib/infrastructure/core/api_keys/api_key.dart
