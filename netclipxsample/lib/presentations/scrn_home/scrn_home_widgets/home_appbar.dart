@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
@@ -16,8 +17,9 @@ import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
       ),
       secondaryIcon: Icons.folder_open,
       bottomAppBar: SizedBox(
-        height: screenHeight*4.8/100,
+        height: screenDimonsion(screenHeight*4.8/100, screenHeight*10.5/100, screenHeight*4.8/100),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             BottomAppBarButtons(title: "Tv Shows", onPressed: () {}),

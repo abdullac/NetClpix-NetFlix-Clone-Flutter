@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netclipxsample/applications/downloads/downloads_bloc.dart';
+import 'package:netclipxsample/applications/home/home_bloc.dart';
+import 'package:netclipxsample/applications/hotandnew/hot_and_new_bloc.dart';
+import 'package:netclipxsample/applications/search/search_result/search_result_bloc.dart';
+import 'package:netclipxsample/applications/search/topsearch/topsearch_bloc.dart';
 import 'package:netclipxsample/domain/core/di/injectable.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 
@@ -18,7 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (ctx) => getIt<DownloadsBloc>())
+        BlocProvider(create: (ctx) => getIt<DownloadsBloc>()),
+        BlocProvider(create: (ctx) => getIt<TopsearchBloc>()),
+        BlocProvider(create: (ctx) => getIt<SearchResultBloc>()),
+        BlocProvider(create: (ctx) => getIt<HotAndNewBloc>()),
+        BlocProvider(create: (ctx) => getIt<HomeBloc>()),
       ],
       child: MaterialApp(
         color: Colors.green,

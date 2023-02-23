@@ -1,4 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netclipxsample/applications/downloads/downloads_bloc.dart';
+import 'package:netclipxsample/infrastructure/core/links/link.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
 import 'package:netclipxsample/presentations/core/variables/images.dart';
@@ -11,10 +16,15 @@ import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart'
 import 'package:video_player/video_player.dart';
 
 class ScrnFastLaughs extends StatelessWidget {
-  const ScrnFastLaughs({Key? key}) : super(key: key);
+  ScrnFastLaughs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImages());
+    });
+
     return Center(
       child: Stack(
         alignment: Alignment.center,
@@ -22,55 +32,20 @@ class ScrnFastLaughs extends StatelessWidget {
           InkWell(
             onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier
                 .value = BottomNavigationBarShow.transparent,
-            child: PageView.builder(
+            child: PageView(
+              // itemCount: 5,
               scrollDirection: Axis.vertical,
-              itemBuilder: (BuildContext context, int index) =>
-                  FastLaghsVideoWidget(index: index),
+              children: List.generate(
+                  5, (index) => FastLaghsVideoWidget(index: index)),
             ),
           ),
-          const Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 60, left: 5),
-              child: RoundIconButton(
-                icon: Icons.volume_off,
-              ),
-            ),
-          ),
-          Positioned(
-            right: 5,
-            bottom: 60,
-            child: Column(
-              children: [
-                Container(
-                    padding: const EdgeInsets.only(right: 8, bottom: 3),
-                    child: InkWell(
-                      onTap: () {},
-                      child: CircleAvatar(
-                        radius: 25,
-                        backgroundImage: NetworkImage(searchSampleImage),
-                      ),
-                    )),
-                Column(
-                  children: const [
-                    FastLaughsActionWidgest(
-                        actionIcon: Icons.emoji_emotions, actionTitle: 'LOL'),
-                    FastLaughsActionWidgest(
-                        actionIcon: Icons.add, actionTitle: 'MyList'),
-                    FastLaughsActionWidgest(
-                        actionIcon: Icons.share, actionTitle: 'Share'),
-                    FastLaughsActionWidgest(
-                        actionIcon: Icons.play_arrow, actionTitle: 'Play'),
-                  ],
-                )
-              ],
-            ),
-          )
         ],
       ),
     );
   }
 }
+
+
 
 
 

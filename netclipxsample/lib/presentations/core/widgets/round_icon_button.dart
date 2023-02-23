@@ -3,9 +3,11 @@ import 'package:netclipxsample/presentations/core/variables/colors.dart';
 
 class RoundIconButton extends StatelessWidget {
   final IconData icon;
+  final void Function() onPressed;
   const RoundIconButton({
     super.key,
     required this.icon,
+    required this.onPressed,
   });
 
   @override
@@ -16,10 +18,12 @@ class RoundIconButton extends StatelessWidget {
         icon: Icon(
           icon,
           color: clrWhite,
-        ), onPressed: () { 
+        ),
+        onPressed: () {
           //
+          onPressed();
           print("object");
-         },
+        },
       ),
     );
   }

@@ -1,14 +1,14 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 
-class FastLaughsActionWidgest extends StatelessWidget {
-  final IconData actionIcon;
-  final String actionTitle;
-  const FastLaughsActionWidgest(
-      {super.key, required this.actionIcon, required this.actionTitle});
+class FastLaughsAction extends StatelessWidget {
+  final IconTextButton iconTextButton;
+  const FastLaughsAction(
+    this.iconTextButton,{
+    super.key,
+    
+  });
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,7 @@ class FastLaughsActionWidgest extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            IconTextButton(
-              icon: actionIcon,
-              title: actionTitle,
-              onTap: () {},
-            ),
-            // Icon(
-            //   actionIcon,
-            //   color: clrWhite,
-            // ),
-            // Text(actionTitle, style: textMedium()),
+            iconTextButton
           ],
         ),
       ),

@@ -35,9 +35,9 @@ var everyoneWatchingAlignment = screenDimonsion(
     Alignment.topCenter, Alignment.topCenter, Alignment.topLeft);
 
 
-var ifImageContainer1 =
-    screenDimonsion(const SizedBox(), const ImageContainer(), const SizedBox());
+// var ifImageContainer1 =
+//     screenDimonsion(const SizedBox(), const ImageContainer(), const SizedBox());
 
-var ifImageContainer2 = screenDimonsion(
-    const ImageContainer(), const SizedBox(), const ImageContainer());
+// var ifImageContainer2 = screenDimonsion(
+//     const ImageContainer(), const SizedBox(), const ImageContainer());
 

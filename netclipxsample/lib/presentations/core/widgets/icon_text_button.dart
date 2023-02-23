@@ -7,12 +7,14 @@ class IconTextButton extends StatelessWidget {
   final IconData icon;
   final String title;
   final void Function() onTap;
+  final Color? color;
   // final Size size;
   const IconTextButton({
     super.key,
     required this.icon,
     required this.title,
     required this.onTap,
+    this.color,
     // required this.size,
   });
 
@@ -25,6 +27,7 @@ class IconTextButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon,
+              color: color,
               size: screenDimonsion(screenWidth * 6.5 / 100,
                   screenHeight * 5 / 100, screenWidth * 4.5 / 100)),
           Text(title,

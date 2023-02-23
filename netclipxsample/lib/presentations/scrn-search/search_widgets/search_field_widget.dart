@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../applications/search/search_result/search_result_bloc.dart';
 
 class SearchFieldWidgetArea extends StatelessWidget {
   SearchFieldWidgetArea({super.key});
@@ -53,6 +56,12 @@ class SearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    onChangedField(value) async {
+          await Future.delayed(const Duration(seconds: 1), () {
+        BlocProvider.of<SearchResultBloc>(context)
+            .add(const SearchResultEvent.searchResultItem());
+      });
+        }
     const prefixIcon = Icon(
       Icons.search,
       color: Colors.grey,
@@ -67,12 +76,14 @@ class SearchFieldWidget extends StatelessWidget {
     var textFieldDecoration = BoxDecoration(
         color: Colors.grey[900],
         borderRadius: const BorderRadius.all(Radius.circular(5)));
+    
     return Opacity(
       opacity: newValue == false ? 0.0 : 1.0,
 
       /// text field area
       child: CupertinoTextField(
         controller: searchFieldController,
+        onChanged: onChangedField,
         onTap: onTapField,
         onTapOutside: onTapOutSideField,
         prefix: prefixIcon,

@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netclipxsample/domain/core/failures/main_failure.dart';
-import 'package:netclipxsample/domain/downloads/i_image_phasad_repo.dart';
+import 'package:netclipxsample/domain/downloads/facades/i_image_phasad_repo.dart';
 import 'package:netclipxsample/domain/downloads/models/image_model.dart';
 
 part 'downloads_event.dart';

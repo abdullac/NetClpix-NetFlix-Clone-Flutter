@@ -12,7 +12,7 @@ PreferredSize appBarWidget({
   required Widget bottomAppBar,
 }) {
   var appBarHeight = screenDimonsion(screenHeight * 13.1 / 100,
-      screenHeight * 15 / 100, screenHeight * 10.1 / 100);
+      screenHeight * 17.5 / 100, screenHeight * 10.1 / 100);
 
   var bottomAppBarHeight = screenDimonsion(screenHeight * 6 / 100,
       screenHeight * 10 / 100, screenHeight * 5.5 / 100);
@@ -24,7 +24,7 @@ PreferredSize appBarWidget({
       builder: (BuildContext context, newValue, Widget? _) {
         return AnimatedContainer(
           transform:
-              Matrix4.translationValues(-10, newValue == true ? 0 : -90, 0),
+              Matrix4.translationValues(0, newValue == true ? 0 : -120, 0),
           duration: const Duration(milliseconds: 500),
           child: AppBar(
             backgroundColor:

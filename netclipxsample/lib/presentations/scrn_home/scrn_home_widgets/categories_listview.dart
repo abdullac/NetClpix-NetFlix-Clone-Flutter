@@ -1,5 +1,8 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/applications/home/home_bloc.dart';
+import 'package:netclipxsample/domain/home/models/home_items_model.dart';
+import 'package:netclipxsample/infrastructure/core/links/link.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
 import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
@@ -10,8 +13,10 @@ import 'package:netclipxsample/presentations/scrn_home/home_direction_style_dimi
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/main_image.dart';
 
 class CategoriesListView extends StatelessWidget {
-  CategoriesListView({
+  final HomeState state;
+  const CategoriesListView({
     super.key,
+    required this.state,
   });
 
   @override
@@ -32,10 +37,51 @@ class CategoriesListView extends StatelessWidget {
         shrinkWrap: true,
         itemCount: titleList.length,
         itemBuilder: (BuildContext ctx, int parentIndex) {
+
+
+                    //  List<HomeItemsModel> pastYearitemsList =[];
+                    //  List<HomeItemsModel> trendingitemsList =[];
+                    //  List<HomeItemsModel> topIndiaTvitemsList =[];
+                    //  List<HomeItemsModel> tenseDreamsitemsList =[];
+                    //  List<HomeItemsModel> southIndiaitemsList =[];
+
+                      List<HomeItemsModel> posterPathList(){
+                        List<HomeItemsModel> itemsList =[];
+                          state.homeItemsModelList.forEach((element) {
+                            if(element.releaseDate != null ){
+                              if(parentIndex == 0 && element.releaseDate!.contains("2022")){
+                                itemsList.add(element);
+                                // pastYearitemsList.add(element);
+                              }
+                               if(parentIndex == 1 && element.popularity! > 1500.0){
+                                itemsList.add(element);
+                                // trendingitemsList.add(element);
+                              }
+                               if(parentIndex == 3 && element.voteAverage! > 7){
+                                itemsList.add(element);
+                                // tenseDreamsitemsList.add(element);
+                              }
+                               if(parentIndex == 4 && element.overview!.contains("family") || element.overview!.contains("asia") || element.overview!.contains("arnataka") || element.overview!.contains("annada") || element.overview!.contains("erala") || element.overview!.contains("amil") || element.overview!.contains("alayalam") || element.overview!.contains("ndia")){
+                                itemsList.add(element);
+                                // southIndiaitemsList.add(element);
+                              }
+                              if(parentIndex == 2){
+                                itemsList.add(element);
+                                itemsList.shuffle();
+                                // topIndiaTvitemsList.shuffle();
+                              }
+                            }
+                          });
+                        return itemsList;
+                      }
+                         
+                    
+
+
           return Column(
             children: [
               screenDimonsion(
-                  parentIndex == 0 ? const MainImage() : const SizedBox(),
+                  parentIndex == 0 ? MainImage(state: state) : const SizedBox(),
                   const SizedBox(),
                   const SizedBox()),
               Container(
@@ -46,10 +92,41 @@ class CategoriesListView extends StatelessWidget {
                     TitleArea(title: titleList[parentIndex]),
                     Expanded(
                       child: ListView.separated(
-                        itemCount: 10,
+                        itemCount: parentIndex == 2 ? 10 : posterPathList().length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
-                          return Stack(
+
+
+                          String setImageUrl(){
+                            if(parentIndex == 0){
+                              return state.homeItemsModelList.isNotEmpty
+                                    ? "$imageBaseUrl${posterPathList()[index].posterPath}"
+                                    : sampleVerticalImage;
+                            }else if(parentIndex == 1){
+                              return state.homeItemsModelList.isNotEmpty
+                                    ? "$imageBaseUrl${posterPathList()[index].posterPath}"
+                                    : sampleVerticalImage;
+                            }else if(parentIndex == 2){
+                              return state.homeItemsModelList.isNotEmpty
+                                    ? "$imageBaseUrl${posterPathList()[index].posterPath}"
+                                    : sampleVerticalImage;
+                            }else if(parentIndex == 3){
+                              return state.homeItemsModelList.isNotEmpty
+                                    ? "$imageBaseUrl${posterPathList()[index].posterPath}"
+                                    : sampleVerticalImage;
+                            }else if(parentIndex == 4){
+                              return state.homeItemsModelList.isNotEmpty
+                                    ? "$imageBaseUrl${posterPathList()[index].posterPath}"
+                                    : sampleVerticalImage;
+                            }else{
+                              return sampleVerticalImage;
+                            }
+                          }
+
+
+
+
+                           return Stack(
                             children: [
                               Container(
                                 height: double.infinity,
@@ -58,7 +135,11 @@ class CategoriesListView extends StatelessWidget {
                                 child: VerticalImageContainerWidget(
                                   width: 110,
                                   height: 100,
-                                  imageUrl: sampleVerticalImage,
+                                  imageUrl:setImageUrl()
+                                  
+                                  
+                                  
+                                  
                                 ),
                               ),
                               parentIndex % 3 == 2

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
 import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
@@ -9,6 +12,9 @@ import 'package:netclipxsample/presentations/scrn_downloads/scrn_downloads.dart'
 import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.dart';
+
+
+ValueNotifier<bool> volumeNotifier = ValueNotifier(false);
 
 enum BottomNavigationBarShow {
   visible,
@@ -22,13 +28,13 @@ class ScrnMainPage extends StatelessWidget {
   static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
       ValueNotifier(BottomNavigationBarShow.visible);
 
-  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
+  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(2);
 
   // list of screens
   final List<Widget> screensList = <Widget>[
     ScrnHome(),
     const ScrnNewAndHot(),
-    const ScrnFastLaughs(),
+     ScrnFastLaughs(),
     const ScrnSearch(),
     const ScrnDownloads(),
   ];
@@ -36,6 +42,12 @@ class ScrnMainPage extends StatelessWidget {
   // Build function
   @override
   Widget build(BuildContext context) {
+    /// system Navigation black color
+    if(Platform.isAndroid){
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.black,
+        systemNavigationBarIconBrightness: Brightness.dark));
+    }
     screenSize = MediaQuery.of(context).size;
     bigDimonsion = findDimonsion();
     print("bigDimonsion$bigDimonsion");

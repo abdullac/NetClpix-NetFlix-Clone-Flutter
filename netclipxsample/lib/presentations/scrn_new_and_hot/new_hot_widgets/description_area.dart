@@ -6,11 +6,15 @@ import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 
 class DescriptionsArea extends StatelessWidget {
   final String? comingOnDate;
+  final String descriptionTitle;
+  final String description;
   final bool centerDescriptionTitle;
   const DescriptionsArea({
     this.comingOnDate,
     super.key,
     this.centerDescriptionTitle = false,
+    required this.descriptionTitle,
+    required this.description,
   });
 
   @override
@@ -19,22 +23,18 @@ class DescriptionsArea extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         comingOnDate != null
-            ? descriptionText(comingOnDate!)
-
-            /// coming on date text
+            ? descriptionText(comingOnDate??"sample descrption*")
             : const SizedBox(),
         descriptionText(
-
-            /// description title
-            "Reloaded 1 of  7a",
-            style: textMedium(),
-            centerDescription: centerDescriptionTitle),
+          descriptionTitle,
+          style: textMedium(),
+          centerDescription: centerDescriptionTitle,
+        ),
         descriptionText(
-
-            /// description
-            "Reloaded 1 of 732 librariesReloadeloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2ed 1eloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2 of 732 libraries ieloaded 1 of 732 librariesReloaded 1 of 732 libraries in 2n 280ms in 280ms ",
-            style: textSmall(),
-            isOneLine: false),
+          description,
+          style: textSmall(),
+          isOneLine: false,
+        ),
         SizedBox(
           height: screenHeight * 4 / 100,
         ),
