@@ -12,22 +12,28 @@ class ScrnNewAndHot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// appBar text
     var text = Text("New & Hot", style: appBarTextStyle);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        /// appBar
         appBar: appBarWidget(
           title: text,
+
+          /// bottom appBar 'TAB BAR'
           bottomAppBar: const TabBarWidget(),
         ),
         body: SafeArea(
             child: InkWell(
+          /// hide bottom naviation bar
           onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier.value =
               BottomNavigationBarShow.invisible,
           child: Column(
             children: const [
               SizedBox(height: 15),
               Expanded(
+                /// TAB BAR VIEW childrens pages
                 child: TabBarView(children: [
                   CommingSoonWidget(),
                   EveryonesWatchingwidget(),

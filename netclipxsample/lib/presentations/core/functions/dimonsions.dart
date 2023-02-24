@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 
 enum BigDimonsion {
@@ -6,7 +7,13 @@ enum BigDimonsion {
   same,
 }
 
-BigDimonsion findDimonsion() {
+Size findScreenSize(BuildContext context) {
+  return MediaQuery.of(context).size;
+}
+
+BigDimonsion findDimonsion(context) {
+  double screenWidth = findScreenSize(context).width;
+  double screenHeight = findScreenSize(context).height;
   return screenWidth <= screenHeight * 2 / 3
       ? BigDimonsion.height
       : screenWidth * 2 / 3 < screenHeight

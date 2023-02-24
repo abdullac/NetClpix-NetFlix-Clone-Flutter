@@ -34,7 +34,7 @@ class ButtonsArea extends StatelessWidget {
     ];
     return Positioned(
       bottom: 55,
-      right: screenDimonsion(0.0, screenWidth * 1 / 2, 0.0),
+      right: screenDimonsion(0.0, screenWidth() * 1 / 2, 0.0),
       left: 0,
       child: bigDimonsion == BigDimonsion.same
           ? SizedBox(

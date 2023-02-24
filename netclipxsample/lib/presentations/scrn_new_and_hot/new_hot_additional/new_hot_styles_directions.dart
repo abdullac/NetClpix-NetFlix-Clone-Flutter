@@ -7,18 +7,18 @@ import '../../core/variables/dimonsions.dart';
 //////     styles
 
 var appBarTextStyle = textLarge()?.copyWith(
-    fontSize: screenDimonsion(screenWidth * 8.5 / 100, screenHeight * 6.5 / 100,
-        screenWidth * 4.5 / 100));
+    fontSize: screenDimonsion(screenWidth() * 8.5 / 100, screenHeight() * 6.5 / 100,
+        screenWidth() * 4.5 / 100));
 
 var tabBarTextStyle = TextStyle(
-    fontSize: screenDimonsion(screenWidth * 4.5 / 100, screenHeight * 7.5 / 100,
-        screenWidth * 2.7 / 100),
+    fontSize: screenDimonsion(screenWidth() * 4.5 / 100, screenHeight() * 7.5 / 100,
+        screenWidth() * 2.7 / 100),
     fontWeight: FontWeight.w500);
 
 var everyoneWatchingParentListWidth =
-    screenDimonsion(null, null, screenHeight * 61 / 100);
+    screenDimonsion(null, null, screenHeight() * 61 / 100);
 var everyoneWatchingParentListHieght =
-    screenDimonsion(null, screenHeight * 60 / 100, screenHeight * 60 / 100);
+    screenDimonsion(null, screenHeight() * 60 / 100, screenHeight() * 60 / 100);
 var everyoneWatchingSubListViewDirection =
     screenDimonsion(Axis.vertical, Axis.horizontal, Axis.vertical);
 

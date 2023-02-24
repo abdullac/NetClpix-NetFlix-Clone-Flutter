@@ -79,7 +79,7 @@ class TopSearchesWidget extends StatelessWidget {
                   children: [
                     SizedBox(
                       // width: 40,
-                      width: screenDimonsion(screenWidth, null, null),
+                      width: screenDimonsion(screenWidth(), null, null),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

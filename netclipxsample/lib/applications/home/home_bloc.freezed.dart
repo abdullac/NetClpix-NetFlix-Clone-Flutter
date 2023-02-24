@@ -34,17 +34,17 @@ mixin _$HomeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetHomeItems value) getHomeItems,
+    required TResult Function(GetHomeItems value) getHomeItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetHomeItems value)? getHomeItems,
+    TResult? Function(GetHomeItems value)? getHomeItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetHomeItems value)? getHomeItems,
+    TResult Function(GetHomeItems value)? getHomeItems,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,25 +68,25 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetHomeItemsCopyWith<$Res> {
-  factory _$$_GetHomeItemsCopyWith(
-          _$_GetHomeItems value, $Res Function(_$_GetHomeItems) then) =
-      __$$_GetHomeItemsCopyWithImpl<$Res>;
+abstract class _$$GetHomeItemsCopyWith<$Res> {
+  factory _$$GetHomeItemsCopyWith(
+          _$GetHomeItems value, $Res Function(_$GetHomeItems) then) =
+      __$$GetHomeItemsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetHomeItemsCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_GetHomeItems>
-    implements _$$_GetHomeItemsCopyWith<$Res> {
-  __$$_GetHomeItemsCopyWithImpl(
-      _$_GetHomeItems _value, $Res Function(_$_GetHomeItems) _then)
+class __$$GetHomeItemsCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetHomeItems>
+    implements _$$GetHomeItemsCopyWith<$Res> {
+  __$$GetHomeItemsCopyWithImpl(
+      _$GetHomeItems _value, $Res Function(_$GetHomeItems) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetHomeItems implements _GetHomeItems {
-  const _$_GetHomeItems();
+class _$GetHomeItems implements GetHomeItems {
+  const _$GetHomeItems();
 
   @override
   String toString() {
@@ -96,7 +96,7 @@ class _$_GetHomeItems implements _GetHomeItems {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetHomeItems);
+        (other.runtimeType == runtimeType && other is _$GetHomeItems);
   }
 
   @override
@@ -133,7 +133,7 @@ class _$_GetHomeItems implements _GetHomeItems {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetHomeItems value) getHomeItems,
+    required TResult Function(GetHomeItems value) getHomeItems,
   }) {
     return getHomeItems(this);
   }
@@ -141,7 +141,7 @@ class _$_GetHomeItems implements _GetHomeItems {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetHomeItems value)? getHomeItems,
+    TResult? Function(GetHomeItems value)? getHomeItems,
   }) {
     return getHomeItems?.call(this);
   }
@@ -149,7 +149,7 @@ class _$_GetHomeItems implements _GetHomeItems {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetHomeItems value)? getHomeItems,
+    TResult Function(GetHomeItems value)? getHomeItems,
     required TResult orElse(),
   }) {
     if (getHomeItems != null) {
@@ -159,13 +159,14 @@ class _$_GetHomeItems implements _GetHomeItems {
   }
 }
 
-abstract class _GetHomeItems implements HomeEvent {
-  const factory _GetHomeItems() = _$_GetHomeItems;
+abstract class GetHomeItems implements HomeEvent {
+  const factory GetHomeItems() = _$GetHomeItems;
 }
 
 /// @nodoc
 mixin _$HomeState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isError => throw _privateConstructorUsedError;
   List<HomeItemsModel> get homeItemsModelList =>
       throw _privateConstructorUsedError;
   Option<Either<MainFailure, List<HomeItemsModel>>>
@@ -184,6 +185,7 @@ abstract class $HomeStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isError,
       List<HomeItemsModel> homeItemsModelList,
       Option<Either<MainFailure, List<HomeItemsModel>>>
           mainFailureOrHomeItemsModelOption});
@@ -203,6 +205,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isError = null,
     Object? homeItemsModelList = null,
     Object? mainFailureOrHomeItemsModelOption = null,
   }) {
@@ -210,6 +213,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
               as bool,
       homeItemsModelList: null == homeItemsModelList
           ? _value.homeItemsModelList
@@ -233,6 +240,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isError,
       List<HomeItemsModel> homeItemsModelList,
       Option<Either<MainFailure, List<HomeItemsModel>>>
           mainFailureOrHomeItemsModelOption});
@@ -250,6 +258,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isError = null,
     Object? homeItemsModelList = null,
     Object? mainFailureOrHomeItemsModelOption = null,
   }) {
@@ -257,6 +266,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
               as bool,
       homeItemsModelList: null == homeItemsModelList
           ? _value._homeItemsModelList
@@ -276,12 +289,15 @@ class __$$_HomeStateCopyWithImpl<$Res>
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
       {required this.isLoading,
+      required this.isError,
       required final List<HomeItemsModel> homeItemsModelList,
       required this.mainFailureOrHomeItemsModelOption})
       : _homeItemsModelList = homeItemsModelList;
 
   @override
   final bool isLoading;
+  @override
+  final bool isError;
   final List<HomeItemsModel> _homeItemsModelList;
   @override
   List<HomeItemsModel> get homeItemsModelList {
@@ -297,7 +313,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, homeItemsModelList: $homeItemsModelList, mainFailureOrHomeItemsModelOption: $mainFailureOrHomeItemsModelOption)';
+    return 'HomeState(isLoading: $isLoading, isError: $isError, homeItemsModelList: $homeItemsModelList, mainFailureOrHomeItemsModelOption: $mainFailureOrHomeItemsModelOption)';
   }
 
   @override
@@ -307,6 +323,7 @@ class _$_HomeState implements _HomeState {
             other is _$_HomeState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isError, isError) || other.isError == isError) &&
             const DeepCollectionEquality()
                 .equals(other._homeItemsModelList, _homeItemsModelList) &&
             (identical(other.mainFailureOrHomeItemsModelOption,
@@ -319,6 +336,7 @@ class _$_HomeState implements _HomeState {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
+      isError,
       const DeepCollectionEquality().hash(_homeItemsModelList),
       mainFailureOrHomeItemsModelOption);
 
@@ -332,12 +350,15 @@ class _$_HomeState implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final bool isLoading,
+      required final bool isError,
       required final List<HomeItemsModel> homeItemsModelList,
       required final Option<Either<MainFailure, List<HomeItemsModel>>>
           mainFailureOrHomeItemsModelOption}) = _$_HomeState;
 
   @override
   bool get isLoading;
+  @override
+  bool get isError;
   @override
   List<HomeItemsModel> get homeItemsModelList;
   @override

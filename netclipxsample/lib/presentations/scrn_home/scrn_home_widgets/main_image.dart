@@ -19,26 +19,30 @@ class MainImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final random = Random();
     return Container(
-            height: mainImageHeight,
-            width: mainImagWidthy,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(state.homeItemsModelList.isNotEmpty
-                    ? "$imageBaseUrl${state.homeItemsModelList[random.nextInt(5)].posterPath}"
-                    : sampleVerticalImage),
+      height: mainImageHeight(),
+      width: mainImageWidth(),
+      decoration: BoxDecoration(
+        /// scrnHome mainImage
+        image: state.homeItemsModelList.isNotEmpty
+            ? DecorationImage(
+                image: NetworkImage(
+                    "$imageBaseUrl${state.homeItemsModelList[random.nextInt(5)].posterPath}"),
                 fit: BoxFit.cover,
-              ),
-            ),
-            child:state.isLoading == true
-        ? const Center(
-            child: CircularProgressIndicator(strokeWidth: 2),
-          )
-        : Stack(
+              )
+            : DecorationImage(image: AssetImage(netClipxAssetImage)),
+      ),
+      child: state.isLoading == true
+          ? const Center(
+              child: CircularProgressIndicator(strokeWidth: 2),
+            )
+          : Stack(
               children: [
                 Positioned(
                   bottom: 0,
                   left: 0,
                   right: 0,
+
+                  /// scrnHome buttons
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -60,6 +64,6 @@ class MainImage extends StatelessWidget {
                 )
               ],
             ),
-          );
+    );
   }
 }

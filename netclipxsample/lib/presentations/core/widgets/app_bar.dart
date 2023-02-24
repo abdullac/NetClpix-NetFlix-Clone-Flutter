@@ -11,11 +11,11 @@ PreferredSize appBarWidget({
   bool? isOpacity,
   required Widget bottomAppBar,
 }) {
-  var appBarHeight = screenDimonsion(screenHeight * 13.1 / 100,
-      screenHeight * 17.5 / 100, screenHeight * 10.1 / 100);
+  var appBarHeight = screenDimonsion(screenHeight() * 13.1 / 100,
+      screenHeight() * 17.5 / 100, screenHeight() * 10.1 / 100);
 
-  var bottomAppBarHeight = screenDimonsion(screenHeight * 6 / 100,
-      screenHeight * 10 / 100, screenHeight * 5.5 / 100);
+  var bottomAppBarHeight = screenDimonsion(screenHeight() * 6 / 100,
+      screenHeight() * 10 / 100, screenHeight() * 5.5 / 100);
 
   return PreferredSize(
     preferredSize: Size.fromHeight(appBarHeight),
@@ -35,7 +35,7 @@ PreferredSize appBarWidget({
             actions: [
               IconButton(
                 padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                iconSize: screenHeight * 4.6 / 100,
+                iconSize: screenHeight() * 4.6 / 100,
                 onPressed: () {},
                 icon: const Icon(Icons.cast),
               ),
@@ -45,7 +45,7 @@ PreferredSize appBarWidget({
                         IconButton(
                           padding: const EdgeInsets.symmetric(
                               vertical: 0, horizontal: 0),
-                          iconSize: screenHeight * 4.7 / 100,
+                          iconSize: screenHeight() * 4.7 / 100,
                           onPressed: () {},
                           icon: Icon(secondaryIcon),
                         ),

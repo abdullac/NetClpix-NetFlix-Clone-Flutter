@@ -41,7 +41,7 @@ class TabBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(screenHeight * 0.5 / 100),
+      padding: EdgeInsets.all(screenHeight() * 0.5 / 100),
       child: Text(
         " $emogi $text",
         maxLines: 1,

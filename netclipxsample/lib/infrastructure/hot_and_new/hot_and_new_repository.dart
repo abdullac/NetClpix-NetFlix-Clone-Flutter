@@ -20,11 +20,11 @@ class HotAndNewRepository implements IHotAndNewFacade {
         }).toList();
         return Right(hotAndNewModelList);
       } else {
-        return const Left(MainFailure.serverFailure());
+        return  Left(MainFailure.serverFailure());
       }
     } catch (e) {
       log(e.toString());
-      return const Left(MainFailure.clientFailure());
+      return  Left(MainFailure.clientFailure());
     }
   }
   

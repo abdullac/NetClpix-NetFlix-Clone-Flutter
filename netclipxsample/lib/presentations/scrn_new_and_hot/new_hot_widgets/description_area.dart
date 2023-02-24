@@ -36,7 +36,7 @@ class DescriptionsArea extends StatelessWidget {
           isOneLine: false,
         ),
         SizedBox(
-          height: screenHeight * 4 / 100,
+          height: screenHeight() * 4 / 100,
         ),
       ],
     );

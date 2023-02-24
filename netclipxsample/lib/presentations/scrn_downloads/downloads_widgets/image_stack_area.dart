@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netclipxsample/applications/downloads/downloads_bloc.dart';
 import 'package:netclipxsample/infrastructure/core/links/link.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/styles.dart';
 import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
@@ -26,39 +27,50 @@ class ImageStackArea extends StatelessWidget {
       width: imageBaseContainerWidth,
       child: BlocBuilder<DownloadsBloc, DownloadsState>(
         builder: (context, state) {
-          return Container(
-            alignment: Alignment.center,
-            height: imageChildContainerHeight,
-            width: /*imageChildContainerWidth*/ double.infinity,
-            child: state.isLoading == true ? const CircularProgressIndicator(strokeWidth: 2) : Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                CircleAvatar(
-                  radius: screenDimonsion(screenWidth * 45 / 100,
-                      screenHeight * 35 / 100, screenWidth * 28 / 100),
-                  backgroundColor: Colors.grey.withOpacity(0.4),
-                ),
-                ImageContainerWidget(
-                  imagePosition: ImagePosition.left,
-                  // imageUrl: sampleVerticalImage,
-                  imageUrl:
-                      state.imageModelList.isNotEmpty ?"$imageBaseUrl${state.imageModelList[0].posterPath}" : sampleVerticalImage,
-                ),
-                ImageContainerWidget(
-                  imagePosition: ImagePosition.right,
-                  // imageUrl: sampleVerticalImage,
-                  imageUrl:
-                      state.imageModelList.isNotEmpty ?"$imageBaseUrl${state.imageModelList[1].posterPath}" : sampleVerticalImage,
-                ),
-                ImageContainerWidget(
-                  imagePosition: ImagePosition.center,
-                  // imageUrl: sampleVerticalImage,
-                  imageUrl:
-                      state.imageModelList.isNotEmpty ?"$imageBaseUrl${state.imageModelList[2].posterPath}" : sampleVerticalImage,
-                ),
-              ],
-            ),
-          );
+          return state.imageModelList.isNotEmpty
+              ? Container(
+                  alignment: Alignment.center,
+                  height: imageChildContainerHeight,
+                  width: /*imageChildContainerWidth*/ double.infinity,
+                  child: state.isLoading == true
+                      ? const CircularProgressIndicator(strokeWidth: 2)
+                      : Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: [
+                            CircleAvatar(
+                              radius: screenDimonsion(
+                                  screenWidth() * 45 / 100,
+                                  screenHeight() * 35 / 100,
+                                  screenWidth() * 28 / 100),
+                              backgroundColor: Colors.grey.withOpacity(0.4),
+                            ),
+                            ImageContainerWidget(
+                              imagePosition: ImagePosition.left,
+                              // imageUrl: sampleVerticalImage,
+                              imageUrl:
+                                  "$imageBaseUrl${state.imageModelList[0].posterPath}",
+                            ),
+                            ImageContainerWidget(
+                              imagePosition: ImagePosition.right,
+                              // imageUrl: sampleVerticalImage,
+                              imageUrl:
+                                  "$imageBaseUrl${state.imageModelList[1].posterPath}",
+                            ),
+                            ImageContainerWidget(
+                              imagePosition: ImagePosition.center,
+                              // imageUrl: sampleVerticalImage,
+                              imageUrl:
+                                  "$imageBaseUrl${state.imageModelList[2].posterPath}",
+                            ),
+                          ],
+                        ),
+                )
+              : Center(
+                  child: Text(
+                    "Downloads Images H'not Geted",
+                    style: textMedium(),
+                  ),
+                );
         },
       ),
     );

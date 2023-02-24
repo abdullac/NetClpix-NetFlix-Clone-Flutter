@@ -10,7 +10,7 @@ enum ImagePosition {
 }
 
 class ImageContainerWidget extends StatelessWidget {
-  final String imageUrl;
+  final String? imageUrl;
   final ImagePosition imagePosition;
   const ImageContainerWidget({
     super.key,

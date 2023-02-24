@@ -15,9 +15,10 @@ part 'home_bloc.freezed.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   IHomeFacade iHomeFacade;
   HomeBloc(this.iHomeFacade) : super(HomeState.initial()) {
-    on<_GetHomeItems>((event, emit) async {
+    on<GetHomeItems>((event, emit) async {
       emit(state.copyWith(
         isLoading: true,
+        isError: false,
         homeItemsModelList: [],
         mainFailureOrHomeItemsModelOption: none(),
       ));
@@ -27,12 +28,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       getHomeItemsEither.fold((mainFailure) {
         emit(state.copyWith(
           isLoading: false,
+          isError: true,
           homeItemsModelList: [],
           mainFailureOrHomeItemsModelOption: Some(Left(mainFailure)),
         ));
       }, (homeItemsModelList) {
         emit(state.copyWith(
           isLoading: false,
+          isError: false,
           homeItemsModelList: homeItemsModelList,
           mainFailureOrHomeItemsModelOption: Some(Right(homeItemsModelList)),
         ));

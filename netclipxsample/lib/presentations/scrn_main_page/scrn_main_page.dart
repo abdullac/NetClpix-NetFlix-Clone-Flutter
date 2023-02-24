@@ -13,7 +13,6 @@ import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.d
 import 'package:netclipxsample/presentations/scrn_home/scrn_home.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.dart';
 
-
 ValueNotifier<bool> volumeNotifier = ValueNotifier(false);
 
 enum BottomNavigationBarShow {
@@ -28,13 +27,15 @@ class ScrnMainPage extends StatelessWidget {
   static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
       ValueNotifier(BottomNavigationBarShow.visible);
 
-  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(2);
+  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
+  static ValueNotifier<Size> screenSizeNotifier =
+      ValueNotifier(const Size(205, 130));
 
   // list of screens
   final List<Widget> screensList = <Widget>[
-    ScrnHome(),
+    const ScrnHome(),
     const ScrnNewAndHot(),
-     ScrnFastLaughs(),
+    ScrnFastLaughs(),
     const ScrnSearch(),
     const ScrnDownloads(),
   ];
@@ -43,13 +44,15 @@ class ScrnMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// system Navigation black color
-    if(Platform.isAndroid){
+    if (Platform.isAndroid) {
       SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.black,
-        systemNavigationBarIconBrightness: Brightness.dark));
+          systemNavigationBarColor: Colors.black,
+          systemNavigationBarIconBrightness: Brightness.dark));
     }
-    screenSize = MediaQuery.of(context).size;
-    bigDimonsion = findDimonsion();
+    // screenSize = findScreenSize(context);
+    screenSizeNotifier.value = findScreenSize(context);
+    screenSizeNotifier.notifyListeners();
+    bigDimonsion = findDimonsion(context);
     print("bigDimonsion$bigDimonsion");
     return ValueListenableBuilder(
       valueListenable: selectedIntexNotifier,
@@ -67,26 +70,28 @@ class ScrnMainPage extends StatelessWidget {
   // Bottom navigation bar widget
   Widget bottomNavigatinBarWidget(int updatedIndex) {
     return ValueListenableBuilder(
-        valueListenable: bottomNavigationNotifier,
-        builder: (BuildContext context, newValue, Widget? _) {
-          if (newValue == BottomNavigationBarShow.visible) {
-            return bottomNavigationBar(updatedIndex);
-          } else if (newValue == BottomNavigationBarShow.transparent) {
-            return Opacity(
-                opacity: 0.6, child: bottomNavigationBar(updatedIndex));
-          } else if (newValue == BottomNavigationBarShow.invisible) {
-            return bottomNavigationBarAsist();
-          } else {
-            return const SizedBox();
-          }
-        });
+      valueListenable: bottomNavigationNotifier,
+      builder: (BuildContext context, newValue, Widget? _) {
+        if (newValue == BottomNavigationBarShow.visible) {
+          return bottomNavigationBar(updatedIndex);
+        } else if (newValue == BottomNavigationBarShow.transparent) {
+          return Opacity(
+              opacity: 0.6, child: bottomNavigationBar(updatedIndex));
+        } else if (newValue == BottomNavigationBarShow.invisible) {
+          return bottomNavigationBarAsist();
+        } else {
+          return const SizedBox();
+        }
+      },
+    );
   }
 
   Align bottomNavigationBar(int updatedIndex) {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
-        width: screenDimonsion(screenWidth, screenWidth * 1 / 2, screenWidth),
+        width: screenDimonsion(
+            screenWidth(), screenWidth() * 1 / 2, screenWidth()),
         color: Colors.grey.withOpacity(0.5),
         child: BottomNavigationBar(
           items: bottomNavigationBarItems(updatedIndex),
@@ -94,7 +99,7 @@ class ScrnMainPage extends StatelessWidget {
             selectedIntexNotifier.value = selectedIndex;
             ScrnMainPage.bottomNavigationNotifier.value =
                 BottomNavigationBarShow.visible;
-              appBarShowNotifier.value = true;
+            appBarShowNotifier.value = true;
           },
           currentIndex: selectedIntexNotifier.value,
           iconSize: 25,
