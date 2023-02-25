@@ -18,7 +18,7 @@ class BottomAppBarWidget extends StatelessWidget {
             onPressed: () {},
             icon: Icon(
               Icons.settings,
-              size: bottomAppBarIconSize,
+              size: bottomAppBarIconSize(),
               color: clrWhite,
             ),
             label: Text(

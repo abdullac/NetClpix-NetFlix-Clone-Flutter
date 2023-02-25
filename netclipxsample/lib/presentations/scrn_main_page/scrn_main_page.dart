@@ -13,7 +13,8 @@ import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.d
 import 'package:netclipxsample/presentations/scrn_home/scrn_home.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.dart';
 
-ValueNotifier<bool> volumeNotifier = ValueNotifier(false);
+ValueNotifier<bool> volumeNotifier = ValueNotifier(true);
+// Size screenSizeState = Size(205, 130);
 
 enum BottomNavigationBarShow {
   visible,
@@ -27,11 +28,10 @@ class ScrnMainPage extends StatelessWidget {
   static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
       ValueNotifier(BottomNavigationBarShow.visible);
 
-  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
-  static ValueNotifier<Size> screenSizeNotifier =
-      ValueNotifier(const Size(205, 130));
+  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(2);
 
-  // list of screens
+  static ValueNotifier<Size> screenSizeNotifier = ValueNotifier(Size(205, 130));
+
   final List<Widget> screensList = <Widget>[
     const ScrnHome(),
     const ScrnNewAndHot(),
@@ -52,8 +52,9 @@ class ScrnMainPage extends StatelessWidget {
     // screenSize = findScreenSize(context);
     screenSizeNotifier.value = findScreenSize(context);
     screenSizeNotifier.notifyListeners();
-    bigDimonsion = findDimonsion(context);
-    print("bigDimonsion$bigDimonsion");
+    // setState(() {
+    //   screenSizeState = findScreenSize(context);
+    // });
     return ValueListenableBuilder(
       valueListenable: selectedIntexNotifier,
       builder: (BuildContext context, updatedIndex, Widget? child) {
@@ -70,7 +71,7 @@ class ScrnMainPage extends StatelessWidget {
   // Bottom navigation bar widget
   Widget bottomNavigatinBarWidget(int updatedIndex) {
     return ValueListenableBuilder(
-      valueListenable: bottomNavigationNotifier,
+      valueListenable: ScrnMainPage.bottomNavigationNotifier,
       builder: (BuildContext context, newValue, Widget? _) {
         if (newValue == BottomNavigationBarShow.visible) {
           return bottomNavigationBar(updatedIndex);
@@ -126,7 +127,7 @@ class ScrnMainPage extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   //
-                  bottomNavigationNotifier.value =
+                  ScrnMainPage.bottomNavigationNotifier.value =
                       BottomNavigationBarShow.visible;
                 },
                 icon: const Icon(Icons.open_in_new_rounded)),

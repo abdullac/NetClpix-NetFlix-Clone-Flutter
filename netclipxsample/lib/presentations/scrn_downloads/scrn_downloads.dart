@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/buttons_area.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/downloads_appbar.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/image_stack_area.dart';
@@ -33,10 +34,11 @@ class WidgetsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     return ListView(
       scrollDirection:
           screenDimonsion(Axis.vertical, Axis.horizontal, Axis.vertical),
-      children: const <Widget>[
+      children:  const <Widget>[
         TextWidgetArea(),
         ImageStackArea(),
         // SizedBox(height: screenHeight * 17.6 / 100)

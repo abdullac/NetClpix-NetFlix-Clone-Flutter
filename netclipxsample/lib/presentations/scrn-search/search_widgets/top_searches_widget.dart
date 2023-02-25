@@ -9,7 +9,6 @@ import 'package:netclipxsample/presentations/scrn-search/search_styles/search_di
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn-search/search_widgets/search_gridview.dart';
 
-import '../../core/variables/dimonsions.dart';
 
 class TopSearchesWidget extends StatelessWidget {
   TopSearchesWidget({

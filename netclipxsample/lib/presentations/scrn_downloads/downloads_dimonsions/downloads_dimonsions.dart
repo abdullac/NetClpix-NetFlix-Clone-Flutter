@@ -3,31 +3,31 @@ import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/im
 
 import '../../core/variables/dimonsions.dart';
 
-var textAreaWidth =
+double textAreaWidth() =>
     screenDimonsion(screenWidth(), screenWidth() * 1 / 2, screenWidth());
 
-var textAreaHeight = screenDimonsion(
+double textAreaHeight() => screenDimonsion(
     screenHeight() * 25 / 100, screenHeight(), screenHeight() * 15 / 100);
 
-var imageBaseContainerHeight = screenDimonsion(
+double imageBaseContainerHeight() => screenDimonsion(
     screenHeight() * 42 / 100, screenHeight() * 100 / 100, screenHeight() * 55 / 100);
 
-var imageBaseContainerWidth = screenDimonsion(
+double imageBaseContainerWidth() => screenDimonsion(
     screenWidth() * 65 / 100, screenWidth() * 50 / 100, screenHeight() * 55 / 100);
 
-var imageChildContainerHeight = screenDimonsion(
+double imageChildContainerHeight() => screenDimonsion(
     screenWidth() * 100 / 100, screenHeight() * 90 / 100, screenHeight() * 55 / 100);
 
-var imageChildContainerWidth = screenDimonsion(
+double imageChildContainerWidth() => screenDimonsion(
     screenWidth() * 100 / 100, screenHeight() * 90 / 100, screenHeight() * 55 / 100);
 
-var bottomAppBarIconSize = screenDimonsion(
+double bottomAppBarIconSize() => screenDimonsion(
     screenWidth() * 7 / 100, screenHeight() * 5 / 100, screenHeight() * 4 / 100);
 
-var downloadsButtonWidth =
-    screenDimonsion(screenWidth(), screenWidth() * 1 / 2, screenWidth() * 4 / 10);
+double downloadsButtonWidth() =>
+    screenDimonsion(screenWidth(), screenWidth() * 1 / 2, screenWidth() * 38 / 100);
 
-var downloadsButtonHeight = screenDimonsion(
+double downloadsButtonHeight() => screenDimonsion(
     screenHeight() * 5.5 / 100, screenHeight() * 10 / 100, screenHeight() * 7 / 100);
 
 imageContainerWidth(imagePosition) {

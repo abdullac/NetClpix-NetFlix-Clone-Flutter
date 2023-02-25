@@ -16,6 +16,7 @@ class ImageStackArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //
       BlocProvider.of<DownloadsBloc>(context)
@@ -23,14 +24,14 @@ class ImageStackArea extends StatelessWidget {
     });
     return Container(
       alignment: Alignment.center,
-      height: imageBaseContainerHeight,
-      width: imageBaseContainerWidth,
+      height: imageBaseContainerHeight(),
+      width: imageBaseContainerWidth(),
       child: BlocBuilder<DownloadsBloc, DownloadsState>(
         builder: (context, state) {
           return state.imageModelList.isNotEmpty
               ? Container(
                   alignment: Alignment.center,
-                  height: imageChildContainerHeight,
+                  height: imageChildContainerHeight(),
                   width: /*imageChildContainerWidth*/ double.infinity,
                   child: state.isLoading == true
                       ? const CircularProgressIndicator(strokeWidth: 2)

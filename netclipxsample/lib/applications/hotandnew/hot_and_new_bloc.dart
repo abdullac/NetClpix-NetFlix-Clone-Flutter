@@ -14,7 +14,7 @@ part 'hot_and_new_bloc.freezed.dart';
 class HotAndNewBloc extends Bloc<HotAndNewEvent, HotAndNewState> {
   IHotAndNewFacade iHotAndNewFacade;
   HotAndNewBloc(this.iHotAndNewFacade) : super(HotAndNewState.initial()) {
-    on<_GetComingSoonItems>((event, emit) async {
+    on<GetComingSoonItems>((event, emit) async {
       emit(state.copyWith(
         isLoading: true,
         hotAndNewModelList: [],
@@ -38,7 +38,7 @@ class HotAndNewBloc extends Bloc<HotAndNewEvent, HotAndNewState> {
       });
     });
 
-    on<_GetEveryOnesWatchingItems>((event, emit) async {
+    on<GetEveryOnesWatchingItems>((event, emit) async {
       emit(state.copyWith(
         isLoading: true,
         hotAndNewModelList: [],

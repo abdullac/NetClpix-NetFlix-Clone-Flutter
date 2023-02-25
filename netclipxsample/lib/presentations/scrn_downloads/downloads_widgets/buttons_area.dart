@@ -12,14 +12,15 @@ class ButtonsArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     var buttonWidgets = <Widget>[
       ButtonWidget(
         padding: 8,
         buttonColor: clrBlue ?? clrBlueN,
         buttonTextColor: clrWhite,
         buttonText: "Set Up",
-        buttonHeight: downloadsButtonHeight,
-        buttonWidth: downloadsButtonWidth,
+        buttonHeight: downloadsButtonHeight(),
+        buttonWidth: downloadsButtonWidth(),
       ),
       height0,
       width0,
@@ -28,15 +29,15 @@ class ButtonsArea extends StatelessWidget {
         buttonColor: clrWhite,
         buttonTextColor: clrBlack,
         buttonText: "See what you can download",
-        buttonHeight: downloadsButtonHeight,
-        buttonWidth: downloadsButtonWidth,
+        buttonHeight: downloadsButtonHeight(),
+        buttonWidth: downloadsButtonWidth(),
       ),
     ];
     return Positioned(
       bottom: 55,
       right: screenDimonsion(0.0, screenWidth() * 1 / 2, 0.0),
       left: 0,
-      child: bigDimonsion == BigDimonsion.same
+      child: findBigDimonsion() == BigDimonsion.same
           ? SizedBox(
               width: double.infinity,
               child: Row(

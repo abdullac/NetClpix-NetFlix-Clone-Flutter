@@ -37,22 +37,22 @@ mixin _$HotAndNewEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetComingSoonItems value) getComingSoonItems,
-    required TResult Function(_GetEveryOnesWatchingItems value)
+    required TResult Function(GetComingSoonItems value) getComingSoonItems,
+    required TResult Function(GetEveryOnesWatchingItems value)
         getEveryOnesWatchingItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetComingSoonItems value)? getComingSoonItems,
-    TResult? Function(_GetEveryOnesWatchingItems value)?
+    TResult? Function(GetComingSoonItems value)? getComingSoonItems,
+    TResult? Function(GetEveryOnesWatchingItems value)?
         getEveryOnesWatchingItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetComingSoonItems value)? getComingSoonItems,
-    TResult Function(_GetEveryOnesWatchingItems value)?
+    TResult Function(GetComingSoonItems value)? getComingSoonItems,
+    TResult Function(GetEveryOnesWatchingItems value)?
         getEveryOnesWatchingItems,
     required TResult orElse(),
   }) =>
@@ -78,25 +78,25 @@ class _$HotAndNewEventCopyWithImpl<$Res, $Val extends HotAndNewEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetComingSoonItemsCopyWith<$Res> {
-  factory _$$_GetComingSoonItemsCopyWith(_$_GetComingSoonItems value,
-          $Res Function(_$_GetComingSoonItems) then) =
-      __$$_GetComingSoonItemsCopyWithImpl<$Res>;
+abstract class _$$GetComingSoonItemsCopyWith<$Res> {
+  factory _$$GetComingSoonItemsCopyWith(_$GetComingSoonItems value,
+          $Res Function(_$GetComingSoonItems) then) =
+      __$$GetComingSoonItemsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetComingSoonItemsCopyWithImpl<$Res>
-    extends _$HotAndNewEventCopyWithImpl<$Res, _$_GetComingSoonItems>
-    implements _$$_GetComingSoonItemsCopyWith<$Res> {
-  __$$_GetComingSoonItemsCopyWithImpl(
-      _$_GetComingSoonItems _value, $Res Function(_$_GetComingSoonItems) _then)
+class __$$GetComingSoonItemsCopyWithImpl<$Res>
+    extends _$HotAndNewEventCopyWithImpl<$Res, _$GetComingSoonItems>
+    implements _$$GetComingSoonItemsCopyWith<$Res> {
+  __$$GetComingSoonItemsCopyWithImpl(
+      _$GetComingSoonItems _value, $Res Function(_$GetComingSoonItems) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetComingSoonItems implements _GetComingSoonItems {
-  const _$_GetComingSoonItems();
+class _$GetComingSoonItems implements GetComingSoonItems {
+  const _$GetComingSoonItems();
 
   @override
   String toString() {
@@ -106,7 +106,7 @@ class _$_GetComingSoonItems implements _GetComingSoonItems {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetComingSoonItems);
+        (other.runtimeType == runtimeType && other is _$GetComingSoonItems);
   }
 
   @override
@@ -146,8 +146,8 @@ class _$_GetComingSoonItems implements _GetComingSoonItems {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetComingSoonItems value) getComingSoonItems,
-    required TResult Function(_GetEveryOnesWatchingItems value)
+    required TResult Function(GetComingSoonItems value) getComingSoonItems,
+    required TResult Function(GetEveryOnesWatchingItems value)
         getEveryOnesWatchingItems,
   }) {
     return getComingSoonItems(this);
@@ -156,8 +156,8 @@ class _$_GetComingSoonItems implements _GetComingSoonItems {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetComingSoonItems value)? getComingSoonItems,
-    TResult? Function(_GetEveryOnesWatchingItems value)?
+    TResult? Function(GetComingSoonItems value)? getComingSoonItems,
+    TResult? Function(GetEveryOnesWatchingItems value)?
         getEveryOnesWatchingItems,
   }) {
     return getComingSoonItems?.call(this);
@@ -166,8 +166,8 @@ class _$_GetComingSoonItems implements _GetComingSoonItems {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetComingSoonItems value)? getComingSoonItems,
-    TResult Function(_GetEveryOnesWatchingItems value)?
+    TResult Function(GetComingSoonItems value)? getComingSoonItems,
+    TResult Function(GetEveryOnesWatchingItems value)?
         getEveryOnesWatchingItems,
     required TResult orElse(),
   }) {
@@ -178,32 +178,31 @@ class _$_GetComingSoonItems implements _GetComingSoonItems {
   }
 }
 
-abstract class _GetComingSoonItems implements HotAndNewEvent {
-  const factory _GetComingSoonItems() = _$_GetComingSoonItems;
+abstract class GetComingSoonItems implements HotAndNewEvent {
+  const factory GetComingSoonItems() = _$GetComingSoonItems;
 }
 
 /// @nodoc
-abstract class _$$_GetEveryOnesWatchingItemsCopyWith<$Res> {
-  factory _$$_GetEveryOnesWatchingItemsCopyWith(
-          _$_GetEveryOnesWatchingItems value,
-          $Res Function(_$_GetEveryOnesWatchingItems) then) =
-      __$$_GetEveryOnesWatchingItemsCopyWithImpl<$Res>;
+abstract class _$$GetEveryOnesWatchingItemsCopyWith<$Res> {
+  factory _$$GetEveryOnesWatchingItemsCopyWith(
+          _$GetEveryOnesWatchingItems value,
+          $Res Function(_$GetEveryOnesWatchingItems) then) =
+      __$$GetEveryOnesWatchingItemsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetEveryOnesWatchingItemsCopyWithImpl<$Res>
-    extends _$HotAndNewEventCopyWithImpl<$Res, _$_GetEveryOnesWatchingItems>
-    implements _$$_GetEveryOnesWatchingItemsCopyWith<$Res> {
-  __$$_GetEveryOnesWatchingItemsCopyWithImpl(
-      _$_GetEveryOnesWatchingItems _value,
-      $Res Function(_$_GetEveryOnesWatchingItems) _then)
+class __$$GetEveryOnesWatchingItemsCopyWithImpl<$Res>
+    extends _$HotAndNewEventCopyWithImpl<$Res, _$GetEveryOnesWatchingItems>
+    implements _$$GetEveryOnesWatchingItemsCopyWith<$Res> {
+  __$$GetEveryOnesWatchingItemsCopyWithImpl(_$GetEveryOnesWatchingItems _value,
+      $Res Function(_$GetEveryOnesWatchingItems) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetEveryOnesWatchingItems implements _GetEveryOnesWatchingItems {
-  const _$_GetEveryOnesWatchingItems();
+class _$GetEveryOnesWatchingItems implements GetEveryOnesWatchingItems {
+  const _$GetEveryOnesWatchingItems();
 
   @override
   String toString() {
@@ -214,7 +213,7 @@ class _$_GetEveryOnesWatchingItems implements _GetEveryOnesWatchingItems {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetEveryOnesWatchingItems);
+            other is _$GetEveryOnesWatchingItems);
   }
 
   @override
@@ -254,8 +253,8 @@ class _$_GetEveryOnesWatchingItems implements _GetEveryOnesWatchingItems {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetComingSoonItems value) getComingSoonItems,
-    required TResult Function(_GetEveryOnesWatchingItems value)
+    required TResult Function(GetComingSoonItems value) getComingSoonItems,
+    required TResult Function(GetEveryOnesWatchingItems value)
         getEveryOnesWatchingItems,
   }) {
     return getEveryOnesWatchingItems(this);
@@ -264,8 +263,8 @@ class _$_GetEveryOnesWatchingItems implements _GetEveryOnesWatchingItems {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetComingSoonItems value)? getComingSoonItems,
-    TResult? Function(_GetEveryOnesWatchingItems value)?
+    TResult? Function(GetComingSoonItems value)? getComingSoonItems,
+    TResult? Function(GetEveryOnesWatchingItems value)?
         getEveryOnesWatchingItems,
   }) {
     return getEveryOnesWatchingItems?.call(this);
@@ -274,8 +273,8 @@ class _$_GetEveryOnesWatchingItems implements _GetEveryOnesWatchingItems {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetComingSoonItems value)? getComingSoonItems,
-    TResult Function(_GetEveryOnesWatchingItems value)?
+    TResult Function(GetComingSoonItems value)? getComingSoonItems,
+    TResult Function(GetEveryOnesWatchingItems value)?
         getEveryOnesWatchingItems,
     required TResult orElse(),
   }) {
@@ -286,8 +285,8 @@ class _$_GetEveryOnesWatchingItems implements _GetEveryOnesWatchingItems {
   }
 }
 
-abstract class _GetEveryOnesWatchingItems implements HotAndNewEvent {
-  const factory _GetEveryOnesWatchingItems() = _$_GetEveryOnesWatchingItems;
+abstract class GetEveryOnesWatchingItems implements HotAndNewEvent {
+  const factory GetEveryOnesWatchingItems() = _$GetEveryOnesWatchingItems;
 }
 
 /// @nodoc

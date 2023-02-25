@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_styles_directions.dart';
 
 class TabBarWidget extends StatelessWidget {
@@ -9,6 +9,7 @@ class TabBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     return const TabBar(
       isScrollable: true,
       splashFactory: InkRipple.splashFactory,
@@ -29,6 +30,7 @@ class TabBarWidget extends StatelessWidget {
   }
 }
 
+/// tab bar item
 class TabBarItem extends StatelessWidget {
   final String text;
   final String emogi;
@@ -40,13 +42,15 @@ class TabBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     return Padding(
       padding: EdgeInsets.all(screenHeight() * 0.5 / 100),
+      /// tabBar emoji with text
       child: Text(
         " $emogi $text",
         maxLines: 1,
         textAlign: TextAlign.center,
-        style: tabBarTextStyle,
+        style: tabBarTextStyle(),
       ),
     );
   }

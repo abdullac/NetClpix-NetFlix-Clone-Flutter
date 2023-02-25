@@ -11,14 +11,14 @@ PreferredSize appBarWidget({
   bool? isOpacity,
   required Widget bottomAppBar,
 }) {
-  var appBarHeight = screenDimonsion(screenHeight() * 13.1 / 100,
-      screenHeight() * 17.5 / 100, screenHeight() * 10.1 / 100);
+  double appBarHeight() => screenDimonsion(screenHeight() * 13.1 / 100,
+      screenHeight() * 16.5 / 100, screenHeight() * 10.35 / 100);
 
-  var bottomAppBarHeight = screenDimonsion(screenHeight() * 6 / 100,
+  double bottomAppBarHeight() => screenDimonsion(screenHeight() * 6 / 100,
       screenHeight() * 10 / 100, screenHeight() * 5.5 / 100);
 
   return PreferredSize(
-    preferredSize: Size.fromHeight(appBarHeight),
+    preferredSize: Size.fromHeight(appBarHeight()),
     child: ValueListenableBuilder(
       valueListenable: appBarShowNotifier,
       builder: (BuildContext context, newValue, Widget? _) {
@@ -55,7 +55,7 @@ PreferredSize appBarWidget({
                   : const SizedBox(),
             ],
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(bottomAppBarHeight),
+              preferredSize: Size.fromHeight(bottomAppBarHeight()),
               child: bottomAppBar,
             ),
           ),

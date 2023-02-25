@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
-import 'package:netclipxsample/presentations/scrn-search/search_widgets/search_results_widget.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 
 class SearchGridView extends StatelessWidget {

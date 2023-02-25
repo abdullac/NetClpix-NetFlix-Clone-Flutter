@@ -5,6 +5,7 @@ import 'package:netclipxsample/applications/home/home_bloc.dart';
 import 'package:netclipxsample/domain/core/failures/main_failure.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_direction_style.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/home_appbar.dart';
@@ -17,6 +18,7 @@ class ScrnHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HomeBloc>(context).add(const GetHomeItems());
     });

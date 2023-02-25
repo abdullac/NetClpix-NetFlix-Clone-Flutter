@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_pages/coming_soon_widget.dart';
@@ -12,8 +13,9 @@ class ScrnNewAndHot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     /// appBar text
-    var text = Text("New & Hot", style: appBarTextStyle);
+    var text = Text("New & Hot", style: appBarTextStyle());
     return DefaultTabController(
       length: 2,
       child: Scaffold(

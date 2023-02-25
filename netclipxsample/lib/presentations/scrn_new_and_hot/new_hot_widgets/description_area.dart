@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 
 class DescriptionsArea extends StatelessWidget {
   final String? comingOnDate;
@@ -22,15 +21,21 @@ class DescriptionsArea extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        /// Coming on date Shows
         comingOnDate != null
-            ? descriptionText(comingOnDate??"sample descrption*")
+            ? descriptionAreaText(
+                "Coming on ${comingOnDate ?? "date not provided*"}")
             : const SizedBox(),
-        descriptionText(
+
+        /// description title
+        descriptionAreaText(
           descriptionTitle,
           style: textMedium(),
           centerDescription: centerDescriptionTitle,
         ),
-        descriptionText(
+
+        /// description text
+        descriptionAreaText(
           description,
           style: textSmall(),
           isOneLine: false,
@@ -42,7 +47,7 @@ class DescriptionsArea extends StatelessWidget {
     );
   }
 
-  Widget descriptionText(String text,
+  Widget descriptionAreaText(String text,
       {bool isOneLine = true,
       TextStyle? style,
       bool centerDescription = false}) {

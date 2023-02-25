@@ -1,25 +1,19 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netclipxsample/applications/downloads/downloads_bloc.dart';
-import 'package:netclipxsample/infrastructure/core/links/link.dart';
-import 'package:netclipxsample/presentations/core/functions/styles.dart';
-import 'package:netclipxsample/presentations/core/variables/colors.dart';
-import 'package:netclipxsample/presentations/core/variables/images.dart';
-import 'package:netclipxsample/presentations/core/variables/videos.dart';
-import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
-import 'package:netclipxsample/presentations/core/widgets/round_icon_button.dart';
-import 'package:netclipxsample/presentations/scrn_fast_laughs/fastlaugh_widgets/fastluagh_action_widgets.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_fast_laughs/fastlaugh_widgets/video_widget.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
-import 'package:video_player/video_player.dart';
+
+ValueNotifier<Set<int>> likedNotifier = ValueNotifier({});
+ValueNotifier<Set<int>> myListNotifier = ValueNotifier({});
 
 class ScrnFastLaughs extends StatelessWidget {
-  ScrnFastLaughs({Key? key}) : super(key: key);
+  const ScrnFastLaughs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<DownloadsBloc>(context)
           .add(const DownloadsEvent.getDownloadsImages());
@@ -30,21 +24,24 @@ class ScrnFastLaughs extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           InkWell(
+            /// hide bottom navigation bar on tapDown in screen
             onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier
                 .value = BottomNavigationBarShow.transparent,
+
+            /// pageView
             child: PageView(
-              // itemCount: 5,
-              scrollDirection: Axis.vertical,
-              children: List.generate(
-                  5, (index) => FastLaghsVideoWidget(index: index)),
-            ),
+                scrollDirection: Axis.vertical,
+                children: List.generate(
+                    5,
+                    (index) =>
+                        // PageViewItem(index: index)),
+                        FastLaghsVideoWidget(index: index))),
           ),
         ],
       ),
     );
   }
 }
-
 
 
 

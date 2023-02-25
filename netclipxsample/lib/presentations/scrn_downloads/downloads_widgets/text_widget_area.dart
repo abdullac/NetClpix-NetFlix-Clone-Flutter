@@ -12,6 +12,7 @@ class TextWidgetArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     var textWidgetsList = [
       Text(
         mainTextString,
@@ -25,16 +26,16 @@ class TextWidgetArea extends StatelessWidget {
       ),
     ];
     return SizedBox(
-      width: textAreaWidth,
-      height: textAreaHeight,
-      child: bigDimonsion == BigDimonsion.same
+      width: textAreaWidth(),
+      height: textAreaHeight(),
+      child: findBigDimonsion() == BigDimonsion.same
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: textWidgetsList,
             )
           : Column(
-              mainAxisAlignment: bigDimonsion == BigDimonsion.width
+              mainAxisAlignment: findBigDimonsion() == BigDimonsion.width
                   ? MainAxisAlignment.start
                   : MainAxisAlignment.center,
               children: textWidgetsList,
