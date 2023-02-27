@@ -23,7 +23,7 @@ class CommingSoonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HotAndNewBloc>(context).add(const GetComingSoonItems());
+      // BlocProvider.of<HotAndNewBloc>(context).add(const GetComingSoonItems());
     });
     return BlocBuilder<HotAndNewBloc, HotAndNewState>(
       builder: (context, state) {

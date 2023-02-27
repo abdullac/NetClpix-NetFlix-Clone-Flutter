@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netclipxsample/applications/search/search_result/search_result_bloc.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
 
 class SearchFieldWidgetArea extends StatelessWidget {
   SearchFieldWidgetArea({super.key});
@@ -16,7 +17,7 @@ class SearchFieldWidgetArea extends StatelessWidget {
       valueListenable: searchFieldClickNotifier,
       builder: (BuildContext context, newValue, Widget? _) {
         var boxDecoration = BoxDecoration(
-          color: Colors.grey[800],
+          color: clrGrey800,
           borderRadius: const BorderRadius.all(Radius.circular(5)),
         );
 
@@ -65,17 +66,17 @@ class SearchFieldWidget extends StatelessWidget {
 
     const prefixIcon = Icon(
       Icons.search,
-      color: Colors.grey,
+      color: clrGrey,
     );
     var suffixIcon = IconButton(
       onPressed: () {
         // clear searchField onPressed
         searchFieldController.clear();
       },
-      icon: const Icon(Icons.close_rounded, color: Colors.grey),
+      icon: const Icon(Icons.close_rounded, color: clrGrey),
     );
     var textFieldDecoration = BoxDecoration(
-        color: Colors.grey[900],
+        color: clrGrey900,
         borderRadius: const BorderRadius.all(Radius.circular(5)));
 
     return Opacity(
@@ -93,8 +94,8 @@ class SearchFieldWidget extends StatelessWidget {
         suffixMode: OverlayVisibilityMode.editing,
         decoration: textFieldDecoration,
         placeholder: "Search",
-        placeholderStyle: TextStyle(color: Colors.grey[400]),
-        style: TextStyle(color: Colors.red[500]),
+        placeholderStyle: TextStyle(color: clrGrey400),
+        style: TextStyle(color: clrRed500),
       ),
     );
   }
@@ -131,13 +132,13 @@ class SearchFieldAssistWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             /// Search icon
-            Icon(Icons.search, color: Colors.grey[300]),
+            Icon(Icons.search, color: clrGrey300),
 
             /// Search text
             Text(
               "Search",
               style: TextStyle(
-                  color: Colors.grey[400], fontWeight: FontWeight.bold),
+                  color: clrGrey400, fontWeight: FontWeight.bold),
             ),
           ],
         ),

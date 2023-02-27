@@ -47,6 +47,7 @@ class CategoriesListView extends StatelessWidget {
               itemBuilder: (BuildContext ctx, int categoryIndex) {
                 //
                 /// method for make HomeItemsModelList from state(Bloc)
+                int topIndiaTvitemsIndex = 0;
                 List<HomeItemsModel> homeItemsList() {
                   List<HomeItemsModel> homeItemsList = [];
                   state.homeItemsModelList.forEach((element) {
@@ -67,9 +68,10 @@ class CategoriesListView extends StatelessWidget {
                     }
 
                     /// topIndiaTvitems
-                    if (categoryIndex == 2) {
+                    topIndiaTvitemsIndex +=1;
+                    if (categoryIndex == 2 || topIndiaTvitemsIndex >= 5) {
                       homeItemsList.add(element);
-                      homeItemsList.shuffle();
+                      // homeItemsList.shuffle();
                     }
 
                     /// tenseDreamsitems

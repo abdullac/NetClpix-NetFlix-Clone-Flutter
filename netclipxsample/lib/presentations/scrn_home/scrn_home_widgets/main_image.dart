@@ -8,6 +8,7 @@ import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/elevated_icon_button.dart';
+import 'package:netclipxsample/presentations/type_your_api/type_your_api.dart';
 
 class MainImage extends StatelessWidget {
   final HomeState state;
@@ -28,7 +29,7 @@ class MainImage extends StatelessWidget {
         image: state.homeItemsModelList.isNotEmpty
             ? DecorationImage(
                 image: NetworkImage(
-                    "$imageBaseUrl${state.homeItemsModelList[random.nextInt(5)].posterPath}"),
+                    "$imageBaseUrl${state.homeItemsModelList[randomIndexMainImage].posterPath}"),
                 fit: BoxFit.cover,
               )
             : DecorationImage(image: AssetImage(netClipxAssetImage)),

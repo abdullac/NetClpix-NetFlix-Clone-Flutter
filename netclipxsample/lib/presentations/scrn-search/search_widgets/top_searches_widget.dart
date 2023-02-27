@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netclipxsample/applications/search/topsearch/topsearch_bloc.dart';
 import 'package:netclipxsample/infrastructure/core/links/link.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/colors.dart';
 import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/core/variables/strings.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
@@ -52,14 +53,14 @@ class TopSearchesPage extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             CircleAvatar(
-              backgroundColor: Colors.white70,
+              backgroundColor: clrWhite70,
               radius: playIconAreaDimonsion(),
             ),
             IconButton(
               padding: const EdgeInsets.all(0),
               icon: const Icon(Icons.play_circle_fill),
               iconSize: playIconSize(),
-              color: Colors.black,
+              color: clrBlack,
               onPressed: () {
                 print("play icon button");
               },
@@ -69,8 +70,8 @@ class TopSearchesPage extends StatelessWidget {
 
     /// widget binding
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<TopsearchBloc>(context)
-          .add(const TopsearchEvent.getTopSearchItem());
+      // BlocProvider.of<TopsearchBloc>(context)
+      //     .add(const TopsearchEvent.getTopSearchItem());
     });
 
     return BlocBuilder<TopsearchBloc, TopsearchState>(

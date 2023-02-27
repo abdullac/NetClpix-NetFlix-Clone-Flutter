@@ -20,7 +20,7 @@ class ScrnHome extends StatelessWidget {
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HomeBloc>(context).add(const GetHomeItems());
+      // BlocProvider.of<HomeBloc>(context).add(const GetHomeItems());
     });
 
     return Scaffold(

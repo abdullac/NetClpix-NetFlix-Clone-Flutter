@@ -11,6 +11,7 @@ import 'package:netclipxsample/presentations/scrn_downloads/scrn_downloads.dart'
 import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.dart';
+import 'package:netclipxsample/presentations/type_your_api/type_your_api.dart';
 import 'diomonsions/main_page_diomonsions.dart';
 
 ValueNotifier<bool> volumeNotifier = ValueNotifier(true);
@@ -56,7 +57,7 @@ class ScrnMainPage extends StatelessWidget {
     }
 
     // print("big dimonsion   ${findBigDimonsion()}");
-    return ValueListenableBuilder(
+    return  ValueListenableBuilder(
       valueListenable: selectedIntexNotifier,
       builder: (BuildContext context, updatedIndex, Widget? child) {
         return Stack(

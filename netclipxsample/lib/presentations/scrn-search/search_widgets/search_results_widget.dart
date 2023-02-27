@@ -16,7 +16,7 @@ class SearchResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
-    WidgetsBinding.instance.addPostFrameCallback((_) async {});
+    // WidgetsBinding.instance.addPostFrameCallback((_) async {});
     return BlocBuilder<SearchResultBloc, SearchResultState>(
         builder: (context, state) {
       List<String> posterPathList = [];

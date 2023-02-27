@@ -21,8 +21,8 @@ class EveryonesWatchingwidget extends StatelessWidget {
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HotAndNewBloc>(context)
-          .add(const GetEveryOnesWatchingItems());
+      // BlocProvider.of<HotAndNewBloc>(context)
+      //     .add(const GetEveryOnesWatchingItems());
     });
     return BlocBuilder<HotAndNewBloc, HotAndNewState>(
         builder: (context, state) {

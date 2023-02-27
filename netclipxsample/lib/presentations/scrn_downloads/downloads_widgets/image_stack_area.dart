@@ -19,9 +19,9 @@ class ImageStackArea extends StatelessWidget {
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      //
-      BlocProvider.of<DownloadsBloc>(context)
-          .add(const DownloadsEvent.getDownloadsImages());
+      // //
+      // BlocProvider.of<DownloadsBloc>(context)
+      //     .add(const DownloadsEvent.getDownloadsImages());
     });
     return Container(
       alignment: Alignment.center,

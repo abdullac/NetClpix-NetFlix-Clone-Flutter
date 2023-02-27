@@ -8,6 +8,7 @@ import 'package:netclipxsample/applications/search/search_result/search_result_b
 import 'package:netclipxsample/applications/search/topsearch/topsearch_bloc.dart';
 import 'package:netclipxsample/domain/core/di/injectable.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
+import 'package:netclipxsample/presentations/type_your_api/type_your_api.dart';
 import 'presentations/core/variables/colors.dart';
 
 Future<void> main() async {
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           extendBodyBehindAppBar: true,
           body: SafeArea(
-            child: ScrnMainPage(),
+            // child: ScrnMainPage(),
+            child: TypeYourApiKey(),
           ),
           resizeToAvoidBottomInset: true,
           extendBody: true,
@@ -58,6 +60,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// scrollable for desktop screen
 class MyCustomeScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
