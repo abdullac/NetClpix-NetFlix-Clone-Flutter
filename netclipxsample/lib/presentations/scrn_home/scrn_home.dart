@@ -5,7 +5,7 @@ import 'package:netclipxsample/applications/home/home_bloc.dart';
 import 'package:netclipxsample/domain/core/failures/main_failure.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
+import 'package:netclipxsample/presentations/core/variables/strings.dart';
 import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_direction_style.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/home_appbar.dart';
@@ -29,50 +29,55 @@ class ScrnHome extends StatelessWidget {
 
       /// hide bottom navigation bar when screen onTapDown
       body: InkWell(
-              onTapDown: (details) => ScrnMainPage
-                  .bottomNavigationNotifier
-                  .value = BottomNavigationBarShow.transparent,
+        onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier.value =
+            BottomNavigationBarShow.transparent,
 
-              /// hide/show appBar when sroll listView
-              child: NotificationListener<UserScrollNotification>(
-                onNotification: (notification) {
-                  int direction = notification.direction.index;
-                  if (direction == 2) {
-                    appBarShowNotifier.value = false;
-                  } else if (direction == 1) {
-                    appBarShowNotifier.value = true;
-                  }
-                  appBarShowNotifier.notifyListeners();
-                  return false;
-                },
-                child: BlocBuilder<HomeBloc, HomeState>(
-                  builder: (context, state) {
-                    /// scrnHome, listView for whole screen to be srollable
-                    return state.mainFailureOrHomeItemsModelOption == Some(Left(MainFailure.clientFailure()))
-                        ? Center(
-                            child: Text(
-                            "Error While Getting Data",
-                            style: textMedium(),
-                          ))
-                        : ListView(
-                            padding: const EdgeInsets.only(top: 0),
-                            scrollDirection: parentListviewDirection,
-                            children: [
-                              screenDimonsion(
-                                  CategoriesListView(state: state),
-                                  rowView(state: state),
-                                  rowView(state: state)),
-                            ],
-                          );
-                  },
-                ),
-              ),
-            ),
+        /// hide/show appBar when sroll listView
+        child: NotificationListener<UserScrollNotification>(
+          onNotification: (notification) {
+            int direction = notification.direction.index;
+            if (direction == 2) {
+              appBarShowNotifier.value = false;
+            } else if (direction == 1) {
+              appBarShowNotifier.value = true;
+            }
+            appBarShowNotifier.notifyListeners();
+            return false;
+          },
+          child: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              /// scrnHome, listView for whole screen to be srollable
+              return "${state.mainFailureOrHomeItemsModelOption}" ==
+                      "${const Some(Left(MainFailure.clientFailure()))}"
+                  ? Center(
+                      child: Text(
+                      clientFailureText,
+                      style: textMedium(),
+                    ))
+                  : "${state.mainFailureOrHomeItemsModelOption}" ==
+                          "${const Some(Left(MainFailure.serverFailure()))}"
+                      ? Center(
+                          child: Text(
+                          serverFailureText,
+                          style: textMedium(),
+                        ))
+                      : ListView(
+                          padding: const EdgeInsets.only(top: 0),
+                          scrollDirection: parentListviewDirection,
+                          children: [
+                            screenDimonsion(CategoriesListView(state: state),
+                                rowView(state: state), rowView(state: state)),
+                          ],
+                        );
+            },
+          ),
+        ),
+      ),
     );
   }
 
   ///scrnHome shows, if not heighted dimonsion.
-  Row rowView({required HomeState state}) {
+  Widget rowView({required HomeState state}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

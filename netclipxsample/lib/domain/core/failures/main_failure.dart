@@ -8,22 +8,3 @@ class MainFailure with _$MainFailure{
   const factory MainFailure.serverFailure() = _ServerFailure;
 }
 
-
-
-
-// class MainFailure {
-//   factory MainFailure.clientFailure({
-//     String? failure,
-//   }) {
-//     failureNotifier.value = failure!;
-//     failureNotifier.notifyListeners();
-//     return MainFailure.clientFailure();
-//   }
-//   factory MainFailure.serverFailure({
-//     String? failure,
-//   }) {
-//     failureNotifier.value = failure!;
-//     failureNotifier.notifyListeners();
-//     return MainFailure.serverFailure();
-//   }
-// }

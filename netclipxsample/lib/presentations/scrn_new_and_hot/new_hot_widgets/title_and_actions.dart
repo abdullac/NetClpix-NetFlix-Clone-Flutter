@@ -26,6 +26,7 @@ class TitleAndActions extends StatelessWidget {
         ),
         SizedBox(
           height: iconTextButtonAreaHeight(),
+
           /// ListView for making number of Buttons
           child: ListView.builder(
             shrinkWrap: true,
@@ -35,6 +36,7 @@ class TitleAndActions extends StatelessWidget {
               return Row(
                 children: [
                   const SizedBox(width: 5),
+
                   /// icon text Button
                   iconTextButtonList[index],
                 ],

@@ -6,7 +6,7 @@ class FastLaughsActionSpace extends StatelessWidget {
   const FastLaughsActionSpace(
     this.iconTextButton, {
     super.key,
-  }); 
+  });
 
   @override
   Widget build(BuildContext context) {

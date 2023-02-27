@@ -45,6 +45,7 @@ class TabBarItem extends StatelessWidget {
     screenSizeNotifierValue(context);
     return Padding(
       padding: EdgeInsets.all(screenHeight() * 0.5 / 100),
+
       /// tabBar emoji with text
       child: Text(
         " $emogi $text",

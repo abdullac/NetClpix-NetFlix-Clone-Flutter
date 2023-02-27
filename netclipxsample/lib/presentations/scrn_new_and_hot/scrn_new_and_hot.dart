@@ -5,7 +5,6 @@ import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart'
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_pages/coming_soon_widget.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_pages/everyones_watching_widget.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_widgets/tab_bar_widget.dart';
-
 import 'new_hot_additional/new_hot_styles_directions.dart';
 
 class ScrnNewAndHot extends StatelessWidget {
@@ -14,6 +13,7 @@ class ScrnNewAndHot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
+
     /// appBar text
     var text = Text("New & Hot", style: appBarTextStyle());
     return DefaultTabController(

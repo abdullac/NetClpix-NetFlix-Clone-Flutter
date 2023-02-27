@@ -6,6 +6,7 @@ import 'package:netclipxsample/applications/hotandnew/hot_and_new_bloc.dart';
 import 'package:netclipxsample/domain/core/failures/main_failure.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/strings.dart';
 import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/new_hot_additional/new_hot_styles_directions.dart';
@@ -26,104 +27,119 @@ class CommingSoonWidget extends StatelessWidget {
     });
     return BlocBuilder<HotAndNewBloc, HotAndNewState>(
       builder: (context, state) {
-        return state.isLoading == true
-            ? const Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              )
-            : "${state.mainFailureOrHotAndNewModelOption}" ==
-                    "${const Some(Left(MainFailure.clientFailure()))}"
-                ? const Center(
-                    child: Text(
-                        "C'nt connect to Server. Please check internet connection or more.",
-                        textAlign: TextAlign.center))
-                : state.hotAndNewModelList.isEmpty
-                    ? const Center(
-                        child: Text("Coming Soon Items Is Not Available.",
-                            textAlign: TextAlign.center))
+        return RefreshIndicator(
+          onRefresh: () async {
+            BlocProvider.of<HotAndNewBloc>(context)
+                .add(const GetComingSoonItems());
+          },
+          child: "${state.mainFailureOrHotAndNewModelOption}" ==
+                  "${const Some(Left(MainFailure.clientFailure()))}"
+              ? const Center(
+                  child: Text(clientFailureText, textAlign: TextAlign.center))
+              : state.isLoading == true
+                  ? const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : "${state.mainFailureOrHotAndNewModelOption}" ==
+                          "${const Some(Left(MainFailure.serverFailure()))}"
+                      ? const Center(
+                          child: Text(serverFailureText,
+                              textAlign: TextAlign.center))
+                      : state.hotAndNewModelList.isEmpty
+                          ? const Center(
+                              child: Text(isEmptyText,
+                                  textAlign: TextAlign.center))
 
-                    /// ListView
-                    : ListView.builder(
-                        itemCount: state.hotAndNewModelList.length,
-                        scrollDirection: comingsoonParentListViewDirection(),
-                        itemBuilder: (BuildContext context, int index) {
-                          /// if heightedDimonsion, listView item shows ColumnView (image,details descriptions)
-                          var comingsoonColumn = Column(
-                            children: [
-                              ImageContainer(state: state, index: index),
-                              ComingsoonDetailsArea(state: state, index: index),
-                            ],
-                          );
+                          /// ListView
+                          : ListView.builder(
+                              itemCount: state.hotAndNewModelList.length,
+                              scrollDirection:
+                                  comingsoonParentListViewDirection(),
+                              itemBuilder: (BuildContext context, int index) {
+                                /// if heightedDimonsion, listView item shows ColumnView (image,details descriptions)
+                                var comingsoonColumn = Column(
+                                  children: [
+                                    ImageContainer(state: state, index: index),
+                                    ComingsoonDetailsArea(
+                                        state: state, index: index),
+                                  ],
+                                );
 
-                          /// if widthedDimonsion, listView item shows RowView (image,details descriptions)
-                          var comingsoonRow = Row(
-                            children: [
-                              ImageContainer(state: state, index: index),
-                              const SizedBox(width: 5),
-                              ComingsoonDetailsArea(
-                                state: state,
-                                index: index,
-                              ),
-                            ],
-                          );
-
-                          /// listView item shows 3 type defferent screenDimonsions
-                          var imageAndDetailsWidgets = screenDimonsion(
-                              comingsoonColumn,
-                              comingsoonRow,
-                              comingsoonColumn);
-
-                          /// date formate
-                          final dateTime = DateTime.parse(
-                              "${state.hotAndNewModelList[index].releaseDate}");
-                          final dayFormat = DateFormat('dd');
-                          final monthFormat = DateFormat('MMM');
-                          final dayFormated = dayFormat.format(dateTime);
-                          final monthFormated = monthFormat.format(dateTime);
-
-                          /// ListView item (return to listview itemBuilder)
-                          return SizedBox(
-                            width: comingsoonParentListviewWidth(),
-                            child: Row(
-                              crossAxisAlignment: comingsoonRowCrossAxis(),
-                              mainAxisAlignment: comingsoonRowMainAxis(),
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  child: SizedBox(
-                                    width: null,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        /// date,month widgets
-                                        Text(
-                                          dayFormated,
-                                          style: textMedium(),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        Text(
-                                          monthFormated,
-                                          style: textMedium()?.copyWith(
-                                              fontWeight: FontWeight.w800),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                                /// if widthedDimonsion, listView item shows RowView (image,details descriptions)
+                                var comingsoonRow = Row(
+                                  children: [
+                                    ImageContainer(state: state, index: index),
+                                    const SizedBox(width: 5),
+                                    ComingsoonDetailsArea(
+                                      state: state,
+                                      index: index,
                                     ),
-                                  ),
-                                ),
+                                  ],
+                                );
 
-                                /// image, details descriptions
-                                SizedBox(
-                                  width: comingsoonImageAndDetailsWidth(),
-                                  height: comingsoonImageAndDetailsHieght(),
-                                  child: imageAndDetailsWidgets,
-                                ),
-                              ],
+                                /// listView item shows 3 type defferent screenDimonsions
+                                var imageAndDetailsWidgets = screenDimonsion(
+                                    comingsoonColumn,
+                                    comingsoonRow,
+                                    comingsoonColumn);
+
+                                /// date formate
+                                final dateTime = DateTime.parse(
+                                    "${state.hotAndNewModelList[index].releaseDate}");
+                                final dayFormat = DateFormat('dd');
+                                final monthFormat = DateFormat('MMM');
+                                final dayFormated = dayFormat.format(dateTime);
+                                final monthFormated =
+                                    monthFormat.format(dateTime);
+
+                                /// ListView item (return to listview itemBuilder)
+                                return SizedBox(
+                                  width: comingsoonParentListviewWidth(),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        comingsoonRowCrossAxis(),
+                                    mainAxisAlignment: comingsoonRowMainAxis(),
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 5),
+                                        child: SizedBox(
+                                          width: null,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              /// date,month widgets
+                                              Text(
+                                                dayFormated,
+                                                style: textMedium(),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              Text(
+                                                monthFormated,
+                                                style: textMedium()?.copyWith(
+                                                    fontWeight:
+                                                        FontWeight.w800),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+
+                                      /// image, details descriptions
+                                      SizedBox(
+                                        width: comingsoonImageAndDetailsWidth(),
+                                        height:
+                                            comingsoonImageAndDetailsHieght(),
+                                        child: imageAndDetailsWidgets,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                             ),
-                          );
-                        },
-                      );
+        );
       },
     );
   }

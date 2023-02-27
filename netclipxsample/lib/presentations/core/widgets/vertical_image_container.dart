@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/variables/images.dart';
 
@@ -26,11 +24,16 @@ class VerticalImageContainerWidget extends StatelessWidget {
       margin: margin ?? const EdgeInsets.all(0),
       decoration: BoxDecoration(
         image:
-            imageUrl != null ?
-            DecorationImage(image: NetworkImage(imageUrl!), fit: BoxFit.cover)
-            : DecorationImage(image: AssetImage(netClipxAssetImage)),
+
+            /// image
+            imageUrl != null
+                ? DecorationImage(
+                    image: NetworkImage(imageUrl!), fit: BoxFit.cover)
+                : DecorationImage(image: AssetImage(netClipxAssetImage)),
         borderRadius: const BorderRadius.all(Radius.circular(8)),
         boxShadow: boxShadow ??
+
+            /// image shodows
             [
               const BoxShadow(
                 color: Colors.black,

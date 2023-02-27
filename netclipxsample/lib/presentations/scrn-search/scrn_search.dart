@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/widgets/title_area.dart';
 import 'package:netclipxsample/presentations/scrn-search/search_widgets/search_field_widget.dart';
 import 'search_widgets/search_results_widget.dart';
@@ -14,14 +15,19 @@ class ScrnSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var titleAndSearchesArea = Expanded(
+    screenSizeNotifierValue(context);
+    var titleAndSearchesPages = Expanded(
       child: ValueListenableBuilder(
         valueListenable: SearchFieldWidgetArea.searchFieldController,
         builder: (BuildContext context, newValue, Widget? _) => Column(
           children: [
             TitleArea(
+
+                /// search screen title, shows 'search results' when type search field, otherwise 'top searches'.
                 title: newValue.text == "" ? "Top Searches" : "Search Results"),
-            newValue.text == "" ? TopSearchesWidget() : const SearchResults(),
+
+            /// search screen , shows 'search results page' when type search field, otherwise 'top searches page'.
+            newValue.text == "" ? TopSearchesPage() : const SearchResultsPage(),
           ],
         ),
       ),
@@ -30,8 +36,11 @@ class ScrnSearch extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
+          /// area for Cupertino search field
           SearchFieldWidgetArea(),
-          titleAndSearchesArea,
+
+          /// seletion of topSearches or searhRessult
+          titleAndSearchesPages,
         ],
       ),
     );

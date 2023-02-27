@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netclipxsample/domain/core/failures/main_failure.dart';
@@ -14,12 +13,12 @@ class HomeItemsRepository implements IHomeFacade {
   Future<Either<MainFailure, List<HomeItemsModel>>> getHomeItems() async {
     try {
       final response = await Dio(BaseOptions()).get(Url.endPointPopular);
-      if(response.statusCode == 200 || response.statusCode ==201){
+      if (response.statusCode == 200 || response.statusCode == 201) {
         final homeItemsList = (response.data["results"] as List).map((e) {
           return HomeItemsModel.fromJson(e);
         }).toList();
         return Right(homeItemsList);
-      }else{
+      } else {
         return const Left(MainFailure.serverFailure());
       }
     } catch (e) {

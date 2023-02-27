@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netclipxsample/domain/search/Models/search_result_item_model/search_result_item_model.dart';
@@ -13,22 +7,26 @@ import 'package:netclipxsample/domain/search/facades/i_search_results_facade.dar
 import 'package:netclipxsample/infrastructure/core/api_url/url.dart';
 
 @LazySingleton(as: ISearchResultsFacade)
-class SearchResultsRepository implements ISearchResultsFacade{
+class SearchResultsRepository implements ISearchResultsFacade {
   @override
-  Future<Either<MainFailure, List<SearchResultItemModel>>> searchResultItem(String searchQuery) async{
-    try{
-      final response = await Dio(BaseOptions()).get(Url.endPointSearcheResultss+searchQuery);
-      if(response.statusCode == 200 || response.statusCode == 201){
-        final searchResultItemModelList = (response.data["results"]as List).map((e){
+  Future<Either<MainFailure, List<SearchResultItemModel>>> searchResultItem(
+      String searchQuery) async {
+    try {
+      final response = await Dio(BaseOptions())
+          .get(Url.endPointSearcheResultss + searchQuery);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final searchResultItemModelList =
+            (response.data["results"] as List).map((e) {
           return SearchResultItemModel.fromJson(e);
         }).toList();
         return Right(searchResultItemModelList);
-      }else{
+      } else {
+        print("status code ${response.statusCode}");
         return const Left(MainFailure.serverFailure());
       }
-    }catch(e){
+    } catch (e) {
+      print(e.toString());
       return const Left(MainFailure.clientFailure());
     }
   }
-
 }

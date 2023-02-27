@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netclipxsample/domain/core/failures/main_failure.dart';
@@ -20,17 +19,18 @@ class HotAndNewRepository implements IHotAndNewFacade {
         }).toList();
         return Right(hotAndNewModelList);
       } else {
-        return  Left(MainFailure.serverFailure());
+        return const Left(MainFailure.serverFailure());
       }
     } catch (e) {
       log(e.toString());
-      return  Left(MainFailure.clientFailure());
+      return const Left(MainFailure.clientFailure());
     }
   }
-  
+
   @override
-  Future<Either<MainFailure, List<HotAndNewModel>>> getEveryonesWatchingItems() async {
-     try {
+  Future<Either<MainFailure, List<HotAndNewModel>>>
+      getEveryonesWatchingItems() async {
+    try {
       final response = await Dio(BaseOptions()).get(Url.endPointNowPlaying);
       if (response.statusCode == 200 || response.statusCode == 201) {
         final hotAndNewModelList = (response.data["results"] as List).map((e) {

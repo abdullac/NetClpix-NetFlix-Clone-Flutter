@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/buttons_area.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/downloads_appbar.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_widgets/image_stack_area.dart';
@@ -12,7 +11,9 @@ class ScrnDownloads extends StatelessWidget {
   /// Build function
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     return Scaffold(
+      /// appBar
       appBar: downloadsAppbar(),
       body: Stack(
         children: const [
@@ -22,11 +23,9 @@ class ScrnDownloads extends StatelessWidget {
       ),
     );
   }
-
- 
 }
 
-///  WidgetsListView
+///  Widgets ListView
 class WidgetsListView extends StatelessWidget {
   const WidgetsListView({
     super.key,
@@ -38,12 +37,11 @@ class WidgetsListView extends StatelessWidget {
     return ListView(
       scrollDirection:
           screenDimonsion(Axis.vertical, Axis.horizontal, Axis.vertical),
-      children:  const <Widget>[
+      children: const <Widget>[
+        /// widgets. text area, images area
         TextWidgetArea(),
         ImageStackArea(),
-        // SizedBox(height: screenHeight * 17.6 / 100)
       ],
     );
   }
 }
-

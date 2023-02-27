@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../applications/search/search_result/search_result_bloc.dart';
+import 'package:netclipxsample/applications/search/search_result/search_result_bloc.dart';
 
 class SearchFieldWidgetArea extends StatelessWidget {
   SearchFieldWidgetArea({super.key});
@@ -22,12 +20,12 @@ class SearchFieldWidgetArea extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(5)),
         );
 
-        ///search field area
         return Container(
           width: double.infinity,
           decoration: boxDecoration,
           child: Stack(
             children: [
+              ///search field area
               SearchFieldAssistWidget(newValue: newValue),
               SearchFieldWidget(
                 searchFieldController: searchFieldController,
@@ -42,6 +40,7 @@ class SearchFieldWidgetArea extends StatelessWidget {
   }
 }
 
+/// search field widget
 class SearchFieldWidget extends StatelessWidget {
   final bool newValue;
   const SearchFieldWidget({
@@ -56,12 +55,14 @@ class SearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// onChanged
     onChangedField(value) async {
-          await Future.delayed(const Duration(seconds: 1), () {
+      await Future.delayed(const Duration(seconds: 1), () {
         BlocProvider.of<SearchResultBloc>(context)
             .add(const SearchResultEvent.searchResultItem());
       });
-        }
+    }
+
     const prefixIcon = Icon(
       Icons.search,
       color: Colors.grey,
@@ -76,11 +77,11 @@ class SearchFieldWidget extends StatelessWidget {
     var textFieldDecoration = BoxDecoration(
         color: Colors.grey[900],
         borderRadius: const BorderRadius.all(Radius.circular(5)));
-    
+
     return Opacity(
       opacity: newValue == false ? 0.0 : 1.0,
 
-      /// text field area
+      /// text field area (cupertino)
       child: CupertinoTextField(
         controller: searchFieldController,
         onChanged: onChangedField,
@@ -101,16 +102,18 @@ class SearchFieldWidget extends StatelessWidget {
   void onTapField() {
     // onTap
     searchFieldClickNotifier.value = true;
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-    // overlays: [SystemUiOverlay.top]);
   }
 
   void onTapOutSideField(event) {
     //onTap outSide
-    searchFieldClickNotifier.value = false;
+    searchFieldController.text == ""
+        ? searchFieldClickNotifier.value = false
+        : searchFieldClickNotifier.value;
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 }
 
+/// search assist widget
 class SearchFieldAssistWidget extends StatelessWidget {
   final bool newValue;
   const SearchFieldAssistWidget({
@@ -127,7 +130,10 @@ class SearchFieldAssistWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            /// Search icon
             Icon(Icons.search, color: Colors.grey[300]),
+
+            /// Search text
             Text(
               "Search",
               style: TextStyle(

@@ -21,9 +21,12 @@ class SearchGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      /// hide bottom navigation bar
       child: InkWell(
         onTapDown: (details) => ScrnMainPage.bottomNavigationNotifier.value =
             BottomNavigationBarShow.invisible,
+
+        /// gridview for Top searches or search results
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: ifSearchView(

@@ -14,6 +14,7 @@ class ButtonsArea extends StatelessWidget {
   Widget build(BuildContext context) {
     screenSizeNotifierValue(context);
     var buttonWidgets = <Widget>[
+      /// Set up button
       ButtonWidget(
         padding: 8,
         buttonColor: clrBlue ?? clrBlueN,
@@ -24,6 +25,8 @@ class ButtonsArea extends StatelessWidget {
       ),
       height0,
       width0,
+
+      /// white color button
       ButtonWidget(
         padding: 12,
         buttonColor: clrWhite,
@@ -40,11 +43,15 @@ class ButtonsArea extends StatelessWidget {
       child: findBigDimonsion() == BigDimonsion.same
           ? SizedBox(
               width: double.infinity,
+
+              /// if sameDimonsion, shows Row view
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: buttonWidgets,
               ),
             )
+
+          /// if not sameDimonsion, shows Column view
           : Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: buttonWidgets,

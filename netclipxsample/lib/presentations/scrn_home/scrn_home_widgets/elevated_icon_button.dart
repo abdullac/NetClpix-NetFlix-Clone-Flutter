@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
 

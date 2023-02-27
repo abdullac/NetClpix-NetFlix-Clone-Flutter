@@ -17,7 +17,7 @@ Size screenSizeNotifierValue([BuildContext? ctx]) {
   if (ctx != null) {
     ScrnMainPage.screenSizeNotifier.value = findScreenSize(ctx);
     ScrnMainPage.screenSizeNotifier.notifyListeners();
-    print(ScrnMainPage.screenSizeNotifier.value);
+    // print(ScrnMainPage.screenSizeNotifier.value);
     return ScrnMainPage.screenSizeNotifier.value;
   }
   return ScrnMainPage.screenSizeNotifier.value;

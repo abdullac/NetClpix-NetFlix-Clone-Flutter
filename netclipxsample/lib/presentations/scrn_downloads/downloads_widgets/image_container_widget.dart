@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/widgets/vertical_image_container.dart';
 import 'package:netclipxsample/presentations/scrn_downloads/downloads_dimonsions/downloads_dimonsions.dart';
 
@@ -23,6 +22,8 @@ class ImageContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform.rotate(
       angle: setToImage(imagePosition)["angle"],
+
+      /// vertical image container
       child: VerticalImageContainerWidget(
         width: imageContainerWidth(imagePosition),
         height: imageContainerHeight(imagePosition),
@@ -33,6 +34,7 @@ class ImageContainerWidget extends StatelessWidget {
     );
   }
 
+  /// image angle, margin, shadow
   Map<String, dynamic> setToImage(ImagePosition imagePosition) {
     Map<String, dynamic> imageMap = {
       "angle": imagePosition == ImagePosition.left ||
@@ -57,6 +59,7 @@ class ImageContainerWidget extends StatelessWidget {
     return imageMap;
   }
 
+  /// shadow for center image
   List<BoxShadow> get centerImageShadowlist {
     return [
       const BoxShadow(
@@ -77,6 +80,7 @@ class ImageContainerWidget extends StatelessWidget {
     ];
   }
 
+  /// shadow for right image
   List<BoxShadow> get rightImageShadowlist {
     return [
       const BoxShadow(
@@ -97,6 +101,7 @@ class ImageContainerWidget extends StatelessWidget {
     ];
   }
 
+  /// shadow for left image
   List<BoxShadow> get leftImageShadowlist {
     return [
       const BoxShadow(

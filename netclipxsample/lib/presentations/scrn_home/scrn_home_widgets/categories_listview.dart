@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:netclipxsample/applications/home/home_bloc.dart';
 import 'package:netclipxsample/domain/home/models/home_items_model.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/widgets/title_area.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/images_list_view.dart';
@@ -17,6 +16,8 @@ class CategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
+
     /// titles for each category listview
     final List<String> titleList = [
       "Released In The Past Year",
@@ -26,8 +27,10 @@ class CategoriesListView extends StatelessWidget {
       "South Indian Cinema",
     ];
     return SizedBox(
-      width: categoryListviewWidth,
+      width: categoryListviewWidth(),
       height: screenHeight(),
+      // width: null,
+      // height: null,
 
       /// listView for make catogories
       child: state.isLoading
@@ -36,7 +39,10 @@ class CategoriesListView extends StatelessWidget {
               scrollDirection: Axis.vertical,
               padding:
                   screenDimonsion(const EdgeInsets.only(top: 0), null, null),
-              shrinkWrap: true,
+
+              /// avoid this error 'notification.metrics.axis == widget.axis': is not true.
+              /// horizontal Listview inside listview. shrnkWrp: false
+              shrinkWrap: false,
               itemCount: titleList.length,
               itemBuilder: (BuildContext ctx, int categoryIndex) {
                 //
@@ -107,7 +113,15 @@ class CategoriesListView extends StatelessWidget {
                       child: Column(
                         children: [
                           /// title for each category
-                          TitleArea(title: titleList[categoryIndex]),
+                          Expanded(
+                            flex: 9,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                TitleArea(title: titleList[categoryIndex]),
+                              ],
+                            ),
+                          ),
 
                           /// horizontal listView for desplaying api images by each category.
                           ImagesListView(

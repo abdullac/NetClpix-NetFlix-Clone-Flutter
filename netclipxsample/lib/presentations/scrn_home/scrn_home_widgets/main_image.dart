@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:netclipxsample/applications/home/home_bloc.dart';
 import 'package:netclipxsample/infrastructure/core/links/link.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/core/widgets/icon_text_button.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home_widgets/elevated_icon_button.dart';
-import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
 
 class MainImage extends StatelessWidget {
   final HomeState state;
@@ -20,6 +18,7 @@ class MainImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
     final random = Random();
     return Container(
       height: mainImageHeight(),

@@ -1,7 +1,5 @@
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -26,13 +24,12 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
       );
       final Either<MainFailure, List<ImageModel>> imagePhasadRepoEither =
           await imagePhasadRepo.getDownloadsImages();
-        log(imagePhasadRepoEither.toString());
+      log(imagePhasadRepoEither.toString());
       emit(
         imagePhasadRepoEither.fold(
           (mainFailure) => state.copyWith(
-            isLoading: false,
-            downloadsImagesFailurOrSucessOption: Some(Left(mainFailure))
-          ),
+              isLoading: false,
+              downloadsImagesFailurOrSucessOption: Some(Left(mainFailure))),
           (listOfImageModel) => state.copyWith(
             isLoading: false,
             imageModelList: listOfImageModel,

@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 
 class IconTextButton extends StatelessWidget {
   final IconData icon;
   final String title;
   final void Function() onTap;
   final Color? color;
-  // final Size size;
   const IconTextButton({
     super.key,
     required this.icon,
     required this.title,
     required this.onTap,
     this.color,
-    // required this.size,
   });
 
   @override

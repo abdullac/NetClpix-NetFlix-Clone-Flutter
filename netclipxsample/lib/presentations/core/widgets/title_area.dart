@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
 
 class TitleArea extends StatelessWidget {
@@ -12,13 +12,16 @@ class TitleArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      // width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Padding(
         padding: const EdgeInsets.only(left: 7),
         child: Text(
           title,
-          style: textLarge(),
+          style: screenDimonsion(
+              textLarge()!.copyWith(fontSize: 18),
+              textLarge()!.copyWith(fontSize: 18),
+              textLarge()!.copyWith(fontSize: 18)),
         ),
       ),
     );

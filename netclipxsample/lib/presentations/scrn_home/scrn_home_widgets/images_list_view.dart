@@ -4,7 +4,6 @@ import 'package:netclipxsample/applications/home/home_bloc.dart';
 import 'package:netclipxsample/domain/home/models/home_items_model.dart';
 import 'package:netclipxsample/infrastructure/core/links/link.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
-import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/core/widgets/vertical_image_container.dart';
 
 class ImagesListView extends StatelessWidget {
@@ -22,8 +21,9 @@ class ImagesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 51,
       child: state.isLoading
-          ? Center(child: CircularProgressIndicator(strokeWidth: 2))
+          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
           : ListView.separated(
               scrollDirection: Axis.horizontal,
               //
@@ -47,9 +47,6 @@ class ImagesListView extends StatelessWidget {
                   } else {
                     return null;
                   }
-                  //  else {
-                  //   return sampleVerticalImage;
-                  // }
                 }
 
                 return Stack(

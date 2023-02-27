@@ -6,5 +6,5 @@ const clrRed = Colors.red;
 var clrBlue = Colors.blueAccent[700];
 var clrBlueN = Colors.blue;
 const clrBlack = Colors.black;
-
-
+const clrPink =  Colors.pink;
+const clrGreen =  Colors.green;

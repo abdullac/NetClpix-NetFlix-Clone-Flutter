@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netclipxsample/applications/downloads/downloads_bloc.dart';
@@ -7,7 +8,7 @@ import 'package:netclipxsample/applications/search/search_result/search_result_b
 import 'package:netclipxsample/applications/search/topsearch/topsearch_bloc.dart';
 import 'package:netclipxsample/domain/core/di/injectable.dart';
 import 'package:netclipxsample/presentations/scrn_main_page/scrn_main_page.dart';
-
+import 'presentations/core/variables/colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,19 +30,20 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (ctx) => getIt<HomeBloc>()),
       ],
       child: MaterialApp(
-        color: Colors.green,
+        scrollBehavior: MyCustomeScrollBehavior(),
+        color: clrGreen,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData(
           brightness: Brightness.dark,
-          primarySwatch: Colors.pink,
-          scaffoldBackgroundColor: Colors.black,
+          primarySwatch: clrPink,
+          scaffoldBackgroundColor: clrBlack,
           appBarTheme: AppBarTheme(
-              color: Colors.black.withOpacity(0.2),
+              color: clrBlack.withOpacity(0.2),
               elevation: 0,
               titleTextStyle:
                   const TextStyle(fontSize: 35, fontWeight: FontWeight.w400)),
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              backgroundColor: Colors.black.withOpacity(0.9)),
+              backgroundColor: clrBlack.withOpacity(0.9)),
         ),
         home: Scaffold(
           extendBodyBehindAppBar: true,
@@ -55,3 +57,29 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class MyCustomeScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
+
+
+
+
+
+
+
+
+
+// class Singleton {
+//   static final Singleton _singleton = Singleton._internal();
+
+//   factory Singleton() {
+//     return _singleton;
+//   }
+
+//   Singleton._internal();
+// }

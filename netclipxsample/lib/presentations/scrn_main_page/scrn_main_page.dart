@@ -1,10 +1,9 @@
 import 'dart:io';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:netclipxsample/presentations/core/functions/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/colors.dart';
-import 'package:netclipxsample/presentations/core/variables/dimonsions.dart';
 import 'package:netclipxsample/presentations/core/variables/icons.dart';
 import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn-search/scrn_search.dart';
@@ -12,9 +11,9 @@ import 'package:netclipxsample/presentations/scrn_downloads/scrn_downloads.dart'
 import 'package:netclipxsample/presentations/scrn_fast_laughs/scrn_fast_laughs.dart';
 import 'package:netclipxsample/presentations/scrn_home/scrn_home.dart';
 import 'package:netclipxsample/presentations/scrn_new_and_hot/scrn_new_and_hot.dart';
+import 'diomonsions/main_page_diomonsions.dart';
 
 ValueNotifier<bool> volumeNotifier = ValueNotifier(true);
-// Size screenSizeState = Size(205, 130);
 
 enum BottomNavigationBarShow {
   visible,
@@ -28,14 +27,15 @@ class ScrnMainPage extends StatelessWidget {
   static ValueNotifier<BottomNavigationBarShow> bottomNavigationNotifier =
       ValueNotifier(BottomNavigationBarShow.visible);
 
-  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(2);
+  final ValueNotifier<int> selectedIntexNotifier = ValueNotifier(0);
 
-  static ValueNotifier<Size> screenSizeNotifier = ValueNotifier(Size(205, 130));
+  static ValueNotifier<Size> screenSizeNotifier =
+      ValueNotifier(const Size(205, 130));
 
   final List<Widget> screensList = <Widget>[
     const ScrnHome(),
     const ScrnNewAndHot(),
-    ScrnFastLaughs(),
+    const ScrnFastLaughs(),
     const ScrnSearch(),
     const ScrnDownloads(),
   ];
@@ -43,18 +43,19 @@ class ScrnMainPage extends StatelessWidget {
   // Build function
   @override
   Widget build(BuildContext context) {
+    screenSizeNotifierValue(context);
+
     /// system Navigation black color
-    if (Platform.isAndroid) {
+    if (kIsWeb) {
+      ////
+    } else if (Platform.isAndroid) {
       SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.black,
-          systemNavigationBarIconBrightness: Brightness.dark));
+        systemNavigationBarColor: Colors.black,
+        systemNavigationBarIconBrightness: Brightness.dark,
+      ));
     }
-    // screenSize = findScreenSize(context);
-    screenSizeNotifier.value = findScreenSize(context);
-    screenSizeNotifier.notifyListeners();
-    // setState(() {
-    //   screenSizeState = findScreenSize(context);
-    // });
+
+    // print("big dimonsion   ${findBigDimonsion()}");
     return ValueListenableBuilder(
       valueListenable: selectedIntexNotifier,
       builder: (BuildContext context, updatedIndex, Widget? child) {
@@ -87,33 +88,45 @@ class ScrnMainPage extends StatelessWidget {
     );
   }
 
+  /// bottom navigation bar
   Align bottomNavigationBar(int updatedIndex) {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
-        width: screenDimonsion(
-            screenWidth(), screenWidth() * 1 / 2, screenWidth()),
+        width: bottomNavigationBarWidth(),
         color: Colors.grey.withOpacity(0.5),
         child: BottomNavigationBar(
           items: bottomNavigationBarItems(updatedIndex),
-          onTap: (selectedIndex) {
-            selectedIntexNotifier.value = selectedIndex;
-            ScrnMainPage.bottomNavigationNotifier.value =
-                BottomNavigationBarShow.visible;
-            appBarShowNotifier.value = true;
-          },
+          onTap: onTap,
           currentIndex: selectedIntexNotifier.value,
-          iconSize: 25,
+          iconSize: iconSize(),
+          selectedIconTheme: selcetediconThemeData(),
+          unselectedFontSize: unSelectedFontSize(),
           selectedItemColor: clrRed,
           unselectedItemColor: clrWhite30,
           showUnselectedLabels: true,
           elevation: 5,
           type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
         ),
       ),
     );
   }
 
+  onTap(selectedIndex) {
+    selectedIntexNotifier.value = selectedIndex;
+    ScrnMainPage.bottomNavigationNotifier.value =
+        BottomNavigationBarShow.visible;
+    appBarShowNotifier.value = true;
+  }
+
+  IconThemeData selcetediconThemeData() {
+    return IconThemeData(
+        size: screenDimonsion(screenHeight() * 4 / 100,
+            screenHeight() * 9 / 100, screenHeight() * 5 / 100));
+  }
+
+  /// if bottomNavigationBar is invisible, then Shows a red colored Square button visible
   Widget bottomNavigationBarAsist() {
     return Visibility(
       visible: true,
@@ -123,7 +136,7 @@ class ScrnMainPage extends StatelessWidget {
           opacity: 0.5,
           child: Container(
             margin: const EdgeInsets.all(5),
-            color: Colors.red,
+            color: clrRed,
             child: IconButton(
                 onPressed: () {
                   //
