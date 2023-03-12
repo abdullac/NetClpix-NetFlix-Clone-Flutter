@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netclipxsample/presentations/core/functions/styles.dart';
+import 'package:netclipxsample/presentations/core/variables/images.dart';
 import 'package:netclipxsample/presentations/core/widgets/app_bar.dart';
 import 'package:netclipxsample/presentations/scrn_home/home_direction_style_diminsion.dart/home_dimonsions.dart';
 
@@ -7,7 +8,7 @@ PreferredSize homeAppBarWidget() {
   return appBarWidget(
     isOpacity: true,
     title: Image.asset(
-      "assets/NetClipxLogo.png",
+        netClipxAssetImage,
       width: 30,
       height: 30,
     ),

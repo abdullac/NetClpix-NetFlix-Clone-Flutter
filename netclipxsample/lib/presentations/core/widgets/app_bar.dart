@@ -22,7 +22,7 @@ PreferredSize appBarWidget({
       builder: (BuildContext context, newValue, Widget? _) {
         return AnimatedContainer(
           transform:
-              Matrix4.translationValues(0, newValue == true ? 0 : -155, 0),
+              Matrix4.translationValues(0, newValue == true ? 0 : -200, 0),
           duration: const Duration(milliseconds: 500),
           child: AppBar(
             backgroundColor:
